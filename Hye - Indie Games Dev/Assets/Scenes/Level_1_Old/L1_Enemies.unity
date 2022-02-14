@@ -724,6 +724,7 @@ GameObject:
   - component: {fileID: 543450651707500876}
   - component: {fileID: 919132147968291832}
   - component: {fileID: 919132147968291831}
+  - component: {fileID: 919132147968291833}
   m_Layer: 0
   m_Name: Mush room
   m_TagString: Untagged
@@ -767,6 +768,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &919132147968291833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147968291830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a034915000387fa4892238a359be4595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mush: {fileID: 5372525516358976748, guid: 1b63b41cd259c46469ed1a39040853ea, type: 3}
+  mushroomInterval: 1
 --- !u!1 &1082271958708211885
 GameObject:
   m_ObjectHideFlags: 0
