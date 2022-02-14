@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4878aebd195aa7a418532ec48d26ac62, type: 3}
+  m_Name: NormalMovement
+  m_EditorClassIdentifier: 
+  speed: 4
+  minSlideTime: 0.3
+  slideTime: 2
+  slideForce: 10
+  slideRecoveryTime: 1
+  autoSlideOnSlopes: 0.93
+  jumpForce: 18
+  generalMovementMultiplier: 10
+  airMovementMultiplier: 0.4
+  aimMovementMultiplier: 0.65
+  slideMovementMultiplier: 0.1
+  groundDrag: 4
+  slideDrag: 1.5
+  airDrag: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
