@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -4527681338665027096}
   - component: {fileID: -8443935083531669083}
   - component: {fileID: 8611017945919339370}
+  - component: {fileID: 8813561094368816421}
   m_Layer: 7
   m_Name: normal_arrow
   m_TagString: Untagged
@@ -84,6 +85,19 @@ MonoBehaviour:
     m_Bits: 4215
   statusStrength: 0
   statusSpawnPrefab: {fileID: 0}
+--- !u!114 &8813561094368816421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2907526865677384228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c2eb9a6466eaa4aa3de1d0a61f5c10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 8
 --- !u!1 &4720945830169903207
 GameObject:
   m_ObjectHideFlags: 0

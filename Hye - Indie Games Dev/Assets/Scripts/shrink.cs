@@ -14,6 +14,11 @@ public class shrink : MonoBehaviour
     void Update()
     {
         transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, Time.deltaTime);
+
+        if (transform.localScale.magnitude < .1) 
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
