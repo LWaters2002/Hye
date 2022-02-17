@@ -8,7 +8,13 @@ public class mushroomSpawner : MonoBehaviour
     public float mushroomInterval;
     float distanceCount;
 
+    bool canSpawn;
     RaycastHit lastHit;
+
+    void Start()
+    {
+        Invoke("CanSpawnTrue", 2f);
+    }
 
     private void Update()
     {
@@ -22,20 +28,21 @@ public class mushroomSpawner : MonoBehaviour
             distanceCount += (lastHit.point - hit.point).magnitude;
         }
 
-        if (distanceCount > mushroomInterval) 
+        if (distanceCount > mushroomInterval && canSpawn)
         {
             SpawnMushroom();
             distanceCount -= mushroomInterval;
         }
-    
+
         lastHit = hit;
-
-
     }
-    void SpawnMushroom() 
+
+    void CanSpawnTrue() { canSpawn = true; distanceCount = 0;}
+
+    void SpawnMushroom()
     {
         Instantiate(mush, transform.position, Quaternion.identity);
     }
 
-    
+
 }

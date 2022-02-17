@@ -87,18 +87,18 @@ public abstract class Enemy : MonoBehaviour, IDamagable, IStatusable
         distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
         stateMachine.Tick();
         foreach (Status status in statuses)
-
         {
             status.UpdateStatus();
         }
         Vector3 temp = (player.transform.position - transform.position).normalized;
         temp.y = 0;
-        transform.forward = temp;
+
     }
 
     protected virtual void FixedUpdate()
     {
         stateMachine.currentState.FixedTick();
+        rb.AddForce(Vector3.down*(rb.drag),ForceMode.Acceleration);
     }
 
     public virtual void TakeDamage(float damageAmount, StatusType damageType)
