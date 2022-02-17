@@ -781,7 +781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mush: {fileID: 5372525516358976748, guid: 1b63b41cd259c46469ed1a39040853ea, type: 3}
-  mushroomInterval: 1
+  mushroomInterval: 3
 --- !u!1 &1082271958708211885
 GameObject:
   m_ObjectHideFlags: 0
