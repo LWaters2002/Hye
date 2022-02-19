@@ -27,7 +27,7 @@ public class StateMachine<T> where T : BaseState
         }
     }
 
-    private void SwitchState(Type nextState)
+    public void SwitchState(Type nextState)
     {
         currentState = availableStates[nextState];
         currentState.OnSwitch();

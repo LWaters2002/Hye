@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public abstract class EnemyBaseState : BaseState
 {
     protected Enemy enemy;

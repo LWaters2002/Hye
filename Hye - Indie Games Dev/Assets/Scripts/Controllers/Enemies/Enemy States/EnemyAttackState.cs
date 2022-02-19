@@ -15,7 +15,6 @@ public class EnemyAttackState : EnemyBaseState
         stateToSwitch = null;
         enemy.activeWeapon.OnFinished += SwitchState;
         enemy.activeWeapon.Attack();
-
     }
 
     public override System.Type Tick()

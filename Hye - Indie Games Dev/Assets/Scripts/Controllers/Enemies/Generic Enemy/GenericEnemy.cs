@@ -5,22 +5,6 @@ using UnityEngine;
 
 public class GenericEnemy : Enemy
 {
-    private Animator anim;
-
-    private void Start()
-    {
-        anim = GetComponent<Animator>();
-        if (anim != null) 
-        {
-     //       stateMachine.OnStateChanged += _ => UpdateAnimator(_);
-        }
-    }
-
-    private void UpdateAnimator(Enum newState) 
-    {
-
-    }
-
     protected override void InitialiseStateMachine()
     {
         Dictionary<Type, EnemyBaseState> states = new Dictionary<Type, EnemyBaseState>()

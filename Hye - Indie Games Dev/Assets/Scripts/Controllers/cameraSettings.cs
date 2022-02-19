@@ -30,7 +30,7 @@ public class cameraSettings : MonoBehaviour
     {
         t = 0;
         float val = context.ReadValue<float>();
-        Debug.Log("Right click : " + val);
+        
         if (val > .5)
         {
             targetDistance = 3f;

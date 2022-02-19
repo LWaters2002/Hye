@@ -8,6 +8,7 @@ public abstract class EnemyWeapon : MonoBehaviour
     protected float attackCooldown;
 
     public bool isReady { get; private set; }
+    public string animationName;
     protected bool attacking;
 
     public delegate void voidEvent();

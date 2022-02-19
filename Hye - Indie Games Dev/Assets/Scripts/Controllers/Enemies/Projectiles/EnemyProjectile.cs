@@ -18,12 +18,13 @@ public class EnemyProjectile : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        player = GameObject.FindObjectOfType<PlayerController>();
-        rb = GetComponent<Rigidbody>();
+            //Empty
     }
 
     public virtual void ProjectileSetup(Vector3 target)
     {
+        player = GameObject.FindObjectOfType<PlayerController>();
+        rb = GetComponent<Rigidbody>();
         this.target = target;
     }
 
