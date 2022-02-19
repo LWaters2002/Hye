@@ -73,9 +73,8 @@ public class BaseArrow : MonoBehaviour
 
         Vector3 velDir = rb.velocity * Time.deltaTime;
 
-
-        hasHit = Physics.Raycast(lastPos, velDir, out hitObject, velDir.magnitude * 2, hitMask);
-        Debug.DrawRay(lastPos, velDir, Color.red, 2f);
+        hasHit = Physics.Raycast(lastPos, velDir, out hitObject, (lastPos-transform.position).magnitude, hitMask);
+    //    Debug.DrawLine(lastPos,lastPos + velDir.normalized* (lastPos - transform.position).magnitude, Color.red,2f);
 
         if (!(lastPos != Vector3.zero && !isStuck && hasHit)) return;
         
@@ -114,10 +113,6 @@ public class BaseArrow : MonoBehaviour
     {
         //On hit
         if (!(lastPos != Vector3.zero && !isStuck && hasHit)) return;
-
-
-
-
     }
 
     protected virtual void LateUpdate()
@@ -131,6 +126,14 @@ public class BaseArrow : MonoBehaviour
 
     private void ApplyActions(GameObject other)
     {
+
+        if (other.TryGetComponent(out StatusEnvironment otherStatEnv))
+        {
+            if (otherStatEnv.statusType == statusType)
+            {
+                spawnStatusEffect();
+            }
+        }
         if (other.TryGetComponent(out RepelBubble rBubble)) { return; }
         if (other.TryGetComponent(out IStatusable otherStatus))
         {
@@ -158,13 +161,6 @@ public class BaseArrow : MonoBehaviour
             }
         }
 
-        if (other.TryGetComponent(out StatusEnvironment otherStatEnv))
-        {
-            if (otherStatEnv.statusType == statusType)
-            {
-                spawnStatusEffect();
-            }
-        }
     }
 
     void spawnStatusEffect()

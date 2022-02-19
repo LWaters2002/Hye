@@ -35,7 +35,8 @@ public abstract class Enemy : MonoBehaviour, IDamagable, IStatusable
     public EnemyWeapon activeWeapon { get; set; }
     public UnityAction<float> OnHit;
 
-    protected bool isGrounded;
+    [HideInInspector]
+    public bool isGrounded;
 
     // Start is called before the first frame update
     protected virtual void Awake()

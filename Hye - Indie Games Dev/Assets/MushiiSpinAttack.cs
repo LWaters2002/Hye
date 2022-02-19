@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpAttack : EnemyWeapon
+public class MushiiSpinAttack : EnemyWeapon
 {
     [Header("Attack Settings")]
     private int projectileAmount;
@@ -18,20 +18,21 @@ public class JumpAttack : EnemyWeapon
     {
         base.Update();
     }
-    public void jAttack()  // needs to be in it's own method for animation events to work
+
+    public void MushAttack()  // needs to be in it's own method for animation events to work
     {
         Attack();
     }
 
-    public void jFinishd() 
+    public void MushFinished() 
     {
         Finished();
     }
     public override void Attack()
     {
         base.Attack();
-        EnemyProjectile ep = Instantiate(projectilePrefab,enemy.groundPoint.position+Vector3.up*1f,Quaternion.LookRotation(transform.forward,Vector3.up));
-        ep.ProjectileSetup(enemy.transform.position + enemy.transform.forward);
+        EnemyProjectile ep = Instantiate(projectilePrefab, enemy.groundPoint.position + Vector3.up * 1.5f, Quaternion.LookRotation(transform.forward, Vector3.up));
+        ep.ProjectileSetup(transform.position + transform.forward);
         attacking = false;
     }
 }

@@ -2014,14 +2014,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 1.3333334
-    functionName: Attack
+    functionName: jAttack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 2
-    functionName: Finished
+    functionName: jFinishd
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

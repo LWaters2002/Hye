@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!135 &227736921
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132148228142746}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.49225652
-  m_Center: {x: -0.000018075109, y: 0.4855644, z: 0}
 --- !u!1 &7724946359615465937
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,7 +264,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7766991, y: 1}
+    m_SensorSize: {x: 1.7784201, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -448,7 +435,6 @@ Transform:
   m_Children:
   - {fileID: 7724946360765548023}
   - {fileID: 7724946361172448008}
-  - {fileID: 543450652487445536}
   m_Father: {fileID: 7724946361013410983}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -705,71 +691,4 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 75a13ad1d2ed81a44b49ddcdf103a540, type: 3}
   m_PrefabInstance: {fileID: 1050953409}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1221233611
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 7724946360787977581}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: c3112c71fb005ee438f555f8c0f8caa6, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: c3112c71fb005ee438f555f8c0f8caa6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: c3112c71fb005ee438f555f8c0f8caa6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.712
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: c3112c71fb005ee438f555f8c0f8caa6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: c3112c71fb005ee438f555f8c0f8caa6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: c3112c71fb005ee438f555f8c0f8caa6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: c3112c71fb005ee438f555f8c0f8caa6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: c3112c71fb005ee438f555f8c0f8caa6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: c3112c71fb005ee438f555f8c0f8caa6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: c3112c71fb005ee438f555f8c0f8caa6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: c3112c71fb005ee438f555f8c0f8caa6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: c3112c71fb005ee438f555f8c0f8caa6, type: 3}
-      propertyPath: m_Name
-      value: NotMushroom
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c3112c71fb005ee438f555f8c0f8caa6, type: 3}
---- !u!4 &543450652487445536 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c3112c71fb005ee438f555f8c0f8caa6, type: 3}
-  m_PrefabInstance: {fileID: 1221233611}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &919132148228142746 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c3112c71fb005ee438f555f8c0f8caa6, type: 3}
-  m_PrefabInstance: {fileID: 1221233611}
   m_PrefabAsset: {fileID: 0}

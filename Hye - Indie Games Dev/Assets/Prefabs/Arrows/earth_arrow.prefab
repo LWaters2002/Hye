@@ -83,7 +83,7 @@ MonoBehaviour:
   energyCost: 20
   hitMask:
     serializedVersion: 2
-    m_Bits: 4215
+    m_Bits: 2167
   statusStrength: 10
   statusSpawnPrefab: {fileID: 4590176490636258139, guid: 6ecc434da314a57419663483c9ef2152, type: 3}
 --- !u!114 &-1983356347892982600
@@ -790,7 +790,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 0
       maxCurve:
         serializedVersion: 2
