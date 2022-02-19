@@ -151,6 +151,7 @@ public class BaseArrow : MonoBehaviour
         if (other.TryGetComponent(out IDamagable otherDamagable))
         {
             otherDamagable.TakeDamage(damage, statusType);
+            lutils.SpawnDamageNumber(transform.position, damage);
         }
         else
         {
@@ -158,6 +159,7 @@ public class BaseArrow : MonoBehaviour
             if (tempDmg != null)
             {
                 tempDmg.TakeDamage(damage, statusType);
+                lutils.SpawnDamageNumber(transform.position, damage);
             }
         }
 
