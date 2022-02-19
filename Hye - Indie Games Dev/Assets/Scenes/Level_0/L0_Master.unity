@@ -1453,7 +1453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1169745891, guid: 6ac60356fd22ed5418a49b48f54759b3, type: 3}
       propertyPath: speed
-      value: 14
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1169745891, guid: 6ac60356fd22ed5418a49b48f54759b3, type: 3}
       propertyPath: maxHealth
@@ -1495,9 +1495,25 @@ PrefabInstance:
       propertyPath: m_Drag
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1729417805763776312, guid: 6ac60356fd22ed5418a49b48f54759b3, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1729417805763776318, guid: 6ac60356fd22ed5418a49b48f54759b3, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1729417805763776318, guid: 6ac60356fd22ed5418a49b48f54759b3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1729417805763776318, guid: 6ac60356fd22ed5418a49b48f54759b3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1729417805763776318, guid: 6ac60356fd22ed5418a49b48f54759b3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1729417805763776318, guid: 6ac60356fd22ed5418a49b48f54759b3, type: 3}
       propertyPath: m_LocalPosition.x

@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef3f006dc82d964ab8aa04069653da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 20
   damage: 25
   knockback: 10
   faceVelocity: 1
@@ -1468,8 +1468,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.17413515, g: 1, b: 0.0990566, a: 0}
-        key1: {r: 0.023529414, g: 0.2509804, b: 0.007843138, a: 1}
+        key0: {r: 0.34554714, g: 0.14754717, b: 0.4339623, a: 0}
+        key1: {r: 0.18271445, g: 0.007843138, b: 0.2509804, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0.9569177}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
