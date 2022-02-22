@@ -35,9 +35,9 @@ public class MushiiEnemy : Enemy
     public override void ApplyStatus(float statusAmount, StatusType statusRecieved)
     { base.ApplyStatus(statusAmount, statusRecieved); }
 
-    public override void TakeDamage(float damageAmount, StatusType damageType)
+    public override void TakeDamage(float damageAmount, StatusType damageType, Vector3 damagePos)
     {
-        base.TakeDamage(damageAmount, damageType);
+        base.TakeDamage(damageAmount, damageType, damagePos);
 
         if (stateMachine.currentState is EnemyFollowState)
         {

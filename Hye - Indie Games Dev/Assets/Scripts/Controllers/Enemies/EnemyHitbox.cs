@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class EnemyHitbox : MonoBehaviour, IDamagable, IStatusable
 {
-    public float health {get; private set;}
+    public float health { get; private set; }
     public float partHealth;
     public StatusType statusWeakness;
+    public float partMultiplier = 1f;
     public bool isVulnerable;
     public int vulnerableNumber;
     public bool partIsDestroyable;
     public bool partContributesToHealth;
-    
-    Enemy enemyReference; 
-    public Status[] statuses {get; private set;}
-    
-    private void Start() 
+
+    Enemy enemyReference;
+    public Status[] statuses { get; private set; }
+
+    private void Start()
     {
         health = partHealth;
-    
         enemyReference = GetComponentInParent<Enemy>();
     }
 
-    public void TakeDamage(float damageAmount, StatusType damageType)
+    public void TakeDamage(float damageAmount, StatusType damageType, Vector3 damagePos)
     {
         health -= damageAmount;
         if (!partContributesToHealth)
@@ -32,10 +32,10 @@ public class EnemyHitbox : MonoBehaviour, IDamagable, IStatusable
 
         if (isVulnerable)
         {
-           // enemyReference.VulnerabilityHit(vulnerableNumber,damageType);
+            // enemyReference.VulnerabilityHit(vulnerableNumber,damageType);
         }
 
-        enemyReference.TakeDamage(damageAmount,damageType);
+        enemyReference.TakeDamage(damageAmount * partMultiplier, damageType, damagePos);
 
         if (health <= 0 && partIsDestroyable)
         {
@@ -45,6 +45,6 @@ public class EnemyHitbox : MonoBehaviour, IDamagable, IStatusable
 
     public void ApplyStatus(float statusAmount, StatusType statusRecieved)
     {
-        enemyReference.ApplyStatus(statusAmount,statusRecieved);
-    }    
+        enemyReference.ApplyStatus(statusAmount, statusRecieved);
+    }
 }

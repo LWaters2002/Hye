@@ -10,7 +10,7 @@ public class Crate : MonoBehaviour, IStatusable, IDamagable
     {
     }
 
-    public void TakeDamage(float damageAmount, StatusType damageType)
+    public void TakeDamage(float damageAmount, StatusType damageType, Vector3 damagePos)
     {
 
     }

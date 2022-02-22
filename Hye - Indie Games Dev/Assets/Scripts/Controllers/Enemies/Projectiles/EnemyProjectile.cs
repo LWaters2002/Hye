@@ -32,7 +32,7 @@ public class EnemyProjectile : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent(out PlayerController player))
         {
-            player.playerStats.TakeDamage(damage, StatusType.none);
+            player.playerStats.TakeDamage(damage, StatusType.none, transform.position);
             player.rb.AddForce(knockback * rb.velocity.normalized, ForceMode.VelocityChange);
             Destroy(gameObject);
         }

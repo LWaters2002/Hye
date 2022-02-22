@@ -150,16 +150,14 @@ public class BaseArrow : MonoBehaviour
 
         if (other.TryGetComponent(out IDamagable otherDamagable))
         {
-            otherDamagable.TakeDamage(damage, statusType);
-            lutils.SpawnDamageNumber(transform.position, damage);
+            otherDamagable.TakeDamage(damage, statusType, transform.position-transform.forward);
         }
         else
         {
             IDamagable tempDmg = other.GetComponentInParent<IDamagable>();
             if (tempDmg != null)
             {
-                tempDmg.TakeDamage(damage, statusType);
-                lutils.SpawnDamageNumber(transform.position, damage);
+                tempDmg.TakeDamage(damage, statusType, transform.position-transform.forward);
             }
         }
 

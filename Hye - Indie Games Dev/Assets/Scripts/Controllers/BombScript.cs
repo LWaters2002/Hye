@@ -98,16 +98,14 @@ public class BombScript : MonoBehaviour, IStatusable
 
             if (obj.gameObject.TryGetComponent(out IDamagable damagable))
             {
-                damagable.TakeDamage(damage, StatusType.none);
-                lutils.SpawnDamageNumber(obj.ClosestPoint(transform.position), damage);
+                damagable.TakeDamage(damage, StatusType.none, obj.ClosestPoint(transform.position));
             }
             else
             {
                 damagable = obj.GetComponentInParent<IDamagable>();
                 if (damagable != null)
                 {
-                    damagable.TakeDamage(damage, StatusType.none);
-                    lutils.SpawnDamageNumber(obj.ClosestPoint(transform.position), damage);
+                    damagable.TakeDamage(damage, StatusType.none, obj.ClosestPoint(transform.position));
                 }
             }
 

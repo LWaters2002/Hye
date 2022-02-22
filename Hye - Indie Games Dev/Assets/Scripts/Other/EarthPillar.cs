@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EarthPillar : StatusSpawnable, IDamagable
+public class EarthPillar : StatusSpawnable
 {
     public float launchForce;
     public float maxHealth = 20.0f;
@@ -56,11 +56,6 @@ public class EarthPillar : StatusSpawnable, IDamagable
         }
     }
 
-
-    public void TakeDamage(float damage, StatusType statusType)
-    {
-        health -= damage;
-    }
 
     private void OnTriggerEnter(Collider other)
     {

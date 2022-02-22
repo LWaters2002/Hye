@@ -9,7 +9,7 @@ public class InterfacesInitialisation
 public interface IDamagable
 {
     float health {get;}
-    void TakeDamage(float damageAmount, StatusType damageType);
+    void TakeDamage(float damageAmount, StatusType damageType, Vector3 damagePos);
 }
 
 public interface IStatusable

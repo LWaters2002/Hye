@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MushiAttackState : EnemyAttackState
 {
-    public MushiAttackState(MushiiEnemy enemy) : base(enemy) { }
+    public MushiAttackState(Enemy enemy) : base(enemy) { }
 
     private System.Type stateToSwitch;
 

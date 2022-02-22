@@ -58,7 +58,7 @@ public class PlayerStats : IDamagable
         energy = Mathf.Clamp(energy, 0, stats.maxEnergy);
     }
 
-    public void TakeDamage(float damageAmount, StatusType damageType)
+    public void TakeDamage(float damageAmount, StatusType damageType, Vector3 damagePos)
     {
         health -= damageAmount;
         healthTimer = stats.healthRegenTime;
@@ -86,7 +86,7 @@ public class PlayerStats : IDamagable
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Hazard"))
         {
-            TakeDamage(1000f, StatusType.none);
+            TakeDamage(1000f, StatusType.none, Vector3.zero);
         }
     }
 

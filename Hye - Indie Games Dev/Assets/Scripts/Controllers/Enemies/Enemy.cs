@@ -5,7 +5,7 @@ using UnityEngine.AI;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody))]
-public abstract class Enemy : MonoBehaviour, IDamagable, IStatusable
+public abstract class Enemy : MonoBehaviour, IStatusable
 {
     public float health { get; private set; }
     public delegate void FloatEvent(float f);
@@ -102,19 +102,20 @@ public abstract class Enemy : MonoBehaviour, IDamagable, IStatusable
         Vector3 temp = (player.transform.position - transform.position).normalized;
         temp.y = 0;
 
-        isGrounded = Physics.CheckSphere(groundPoint.position,.4f,groundMask);
+        isGrounded = Physics.CheckSphere(groundPoint.position, .4f, groundMask);
     }
 
     protected virtual void FixedUpdate()
     {
         stateMachine.currentState.FixedTick();
-        rb.AddForce(Vector3.down * (rb.drag), ForceMode.Acceleration);
+        if (isGrounded) { return; }
+        rb.AddForce(Vector3.down * (rb.drag) * 9.8f, ForceMode.Acceleration);
     }
 
-    public virtual void TakeDamage(float damageAmount, StatusType damageType)
+    public virtual void TakeDamage(float damageAmount, StatusType damageType, Vector3 damagePos)
     {
         health -= damageAmount;
-
+        lutils.SpawnDamageNumber(damagePos, damageAmount);
         if (health <= 0) { Death(); }
 
         OnHealthChange?.Invoke(health);
