@@ -24,4 +24,11 @@ public class ElderMushiiEnemy : Enemy
     {
         base.TakeDamage(damageAmount, damageType, damageSource);
     }
+
+    protected override void Death()
+    {
+        health = 1000;
+        stateMachine.SwitchState(typeof(EnemyIdleState));
+        an.Play("ElderMushiiPhase2Transition",-1,0f);
+    }
 }

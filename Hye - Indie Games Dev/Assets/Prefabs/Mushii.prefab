@@ -407,7 +407,7 @@ MonoBehaviour:
   speed: 16
   maxHealth: 4
   damage: 10
-  senseRange: 20
+  senseRange: 60
   attackChance: 0.7
   attackCheckRate: 0.2
   isGrounded: 0

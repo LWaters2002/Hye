@@ -22,6 +22,8 @@ public class EnemyFollowState : EnemyBaseState
 
     public override void FixedTick()
     {
+        if (Vector3.Distance(enemy.player.transform.position, enemy.transform.position) > enemy.senseRange){return;}
+        
         if (!enemy.isGrounded) { return; }
         NavMesh.CalculatePath(transform.position, enemy.player.transform.position, NavMesh.AllAreas, enemy.path);
 

@@ -30,6 +30,36 @@ Transform:
   m_Father: {fileID: 1841278074173134845}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: -8.895, y: 90, z: 0}
+--- !u!1 &1181857958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1181857959}
+  m_Layer: 11
+  m_Name: WaveSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1181857959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181857958}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 3.53, y: 15.29, z: 0.02}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1117408396772242045}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &345094543312791751
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,6 +75,7 @@ GameObject:
   - component: {fileID: 5226363749947459792}
   - component: {fileID: 919132149001585370}
   - component: {fileID: 3173873777348366815}
+  - component: {fileID: 8878750959579424274}
   m_Layer: 11
   m_Name: ElderMushii
   m_TagString: Untagged
@@ -66,6 +97,7 @@ Transform:
   - {fileID: 5674083240869823079}
   - {fileID: 5504622304815247778}
   - {fileID: 579676244864612151}
+  - {fileID: 1181857959}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 178.082, z: 0}
@@ -121,7 +153,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   speed: 0
-  maxHealth: 100
+  maxHealth: 120
   damage: 20
   senseRange: 10
   attackChance: 1
@@ -160,7 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRate: 6
   animationName: ElderMushiiBreathAttack
-  attackRange: 18
+  attackRange: 25
   fireTransform: {fileID: 416091906}
   projectileSpawnRate: 0.05
   projectilePrefab: {fileID: 7964640323264791068, guid: e2ecc47da9459fd41b125200fe07d1fe, type: 3}
@@ -176,10 +208,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d67024720ff7c74b9fe2efca1552af9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRate: 8
+  attackRate: 30
   animationName: ElderMushiiSpawnerAttack
   attackRange: 80
-  mushiiPrefab: {fileID: 1169745891, guid: 6ac60356fd22ed5418a49b48f54759b3, type: 3}
+  mushiiPrefab: {fileID: 1169745891, guid: 8413e2a4688bb27448e39b68ff7f2fe0, type: 3}
+--- !u!114 &8878750959579424274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345094543312791751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 552b67100bc8a8b4494fade3eeaa9f7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRate: 8
+  animationName: ElderMushiiWaveAttack
+  attackRange: 120
+  projectilePrefab: {fileID: 7964640323264791068, guid: 5e40bb211868ecc47a3d40dfbdbe3646, type: 3}
+  projectileSpawn: {fileID: 1181857959}
+  waveScale: 3
 --- !u!1 &509403778136057819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1595,7 +1645,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3544031560930181950}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.04084073, z: 0}
+  m_LocalPosition: {x: 0, y: 0.04084073, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6724372408273281627}
@@ -1656,7 +1706,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4637881384662521369}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.054925606, z: 0}
+  m_LocalPosition: {x: 0, y: 0.054925606, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4465201909733743888}
@@ -1743,11 +1793,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boneShape: 1
-  drawBones: 1
+  drawBones: 0
   drawTripods: 0
   boneSize: 1
   tripodSize: 1
-  boneColor: {r: 0, g: 0, b: 1, a: 0.5}
+  boneColor: {r: 1, g: 1, b: 1, a: 0.5}
   m_Transforms:
   - {fileID: 5674083240869823079}
   - {fileID: 2587083619751282350}
@@ -1794,7 +1844,7 @@ Transform:
   m_GameObject: {fileID: 5578431391009322892}
   m_LocalRotation: {x: -0.41581252, y: 0.00000021402647, z: 0.0000000040961856, w: 0.9094504}
   m_LocalPosition: {x: 8.2422047e-10, y: 0.0806372, z: 7.462222e-10}
-  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_LocalScale: {x: 0.99999994, y: 0.9999999, z: 0.9999999}
   m_Children:
   - {fileID: 5319258369942405151}
   - {fileID: 579676245047401901}
@@ -2048,7 +2098,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7758033319310602940}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 0.021770494, y: 0, z: 0.010184979}
+  m_LocalPosition: {x: 0.02177049, y: 0, z: 0.010184979}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8671646518007310977}

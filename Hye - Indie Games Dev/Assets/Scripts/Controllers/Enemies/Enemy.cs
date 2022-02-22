@@ -7,7 +7,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Rigidbody))]
 public abstract class Enemy : MonoBehaviour, IStatusable
 {
-    public float health { get; private set; }
+    public float health { get; protected set; }
     public delegate void FloatEvent(float f);
     public event FloatEvent OnHealthChange;
 
@@ -67,7 +67,7 @@ public abstract class Enemy : MonoBehaviour, IStatusable
 
     protected void CheckAttacks()
     {
-        if (Random.Range(0f, 1f) > attackChance) return;
+        if (Random.Range(0f, 1f) > attackChance || distanceToPlayer > senseRange) return;
 
         foreach (EnemyWeapon weapon in weapons)
         {
@@ -116,7 +116,7 @@ public abstract class Enemy : MonoBehaviour, IStatusable
     {
         health -= damageAmount;
         lutils.SpawnDamageNumber(damagePos, damageAmount);
-        if (health <= 0) { Death(); }
+        if (Mathf.Floor(health) <= 0) { Death(); }
 
         OnHealthChange?.Invoke(health);
         OnHit?.Invoke(damageAmount);
