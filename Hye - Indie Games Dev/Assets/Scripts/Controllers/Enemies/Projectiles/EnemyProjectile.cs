@@ -18,7 +18,7 @@ public class EnemyProjectile : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {
-            //Empty
+        //Empty
     }
 
     public virtual void ProjectileSetup(Vector3 target)
@@ -28,12 +28,14 @@ public class EnemyProjectile : MonoBehaviour
         this.target = target;
     }
 
-    protected virtual void OnCollisionEnter(Collision other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent(out PlayerController player))
+        PlayerController pc = other.gameObject.GetComponentInParent<PlayerController>();
+        
+        if (pc != null)
         {
-            player.playerStats.TakeDamage(damage, StatusType.none, transform.position);
-            player.rb.AddForce(knockback * rb.velocity.normalized, ForceMode.VelocityChange);
+            pc.playerStats.TakeDamage(damage, StatusType.none, transform.position);
+            pc.rb.AddForce(knockback * rb.velocity.normalized, ForceMode.VelocityChange);
             Destroy(gameObject);
         }
 

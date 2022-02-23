@@ -4894,7 +4894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowForce: 75
-  damage: 3
+  damage: 35
   statusType: 4
   energyCost: 15
   hitMask:

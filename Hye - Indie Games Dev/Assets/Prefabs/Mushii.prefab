@@ -405,9 +405,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   speed: 16
-  maxHealth: 4
+  maxHealth: 40
   damage: 10
-  senseRange: 60
+  senseRange: 40
   attackChance: 0.7
   attackCheckRate: 0.2
   isGrounded: 0

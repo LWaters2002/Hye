@@ -26,7 +26,7 @@ public class ElderMushiiBigBallWeapon : EnemyWeapon
 
     public void BigBallStart()  // needs to be in it's own method for animation events to work
     {
-        InvokeRepeating("Attack", Random.Range(0, .05f), projectileSpawnRate);
+        InvokeRepeating("Attack", Random.Range(0, .2f), projectileSpawnRate);
     }
 
     public void BigBallStop()

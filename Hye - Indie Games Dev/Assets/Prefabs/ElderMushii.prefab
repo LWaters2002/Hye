@@ -153,9 +153,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   speed: 0
-  maxHealth: 120
+  maxHealth: 1200
   damage: 20
-  senseRange: 10
+  senseRange: 80
   attackChance: 1
   attackCheckRate: 1
   isGrounded: 0
@@ -177,7 +177,7 @@ MonoBehaviour:
   fireTransform: {fileID: 2541608696642517875}
   projectileSpawnRate: 0.15
   projectilePrefab: {fileID: 7964640323264791068, guid: e51e879e3c81b3542b17563a5cd7329e, type: 3}
-  repeatRange: 3
+  repeatRange: 2
 --- !u!114 &919132149001585370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRate: 6
   animationName: ElderMushiiBreathAttack
-  attackRange: 25
+  attackRange: 45
   fireTransform: {fileID: 416091906}
   projectileSpawnRate: 0.05
   projectilePrefab: {fileID: 7964640323264791068, guid: e2ecc47da9459fd41b125200fe07d1fe, type: 3}
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d67024720ff7c74b9fe2efca1552af9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRate: 30
+  attackRate: 40
   animationName: ElderMushiiSpawnerAttack
   attackRange: 80
   mushiiPrefab: {fileID: 1169745891, guid: 8413e2a4688bb27448e39b68ff7f2fe0, type: 3}
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552b67100bc8a8b4494fade3eeaa9f7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRate: 8
+  attackRate: 12
   animationName: ElderMushiiWaveAttack
   attackRange: 120
   projectilePrefab: {fileID: 7964640323264791068, guid: 5e40bb211868ecc47a3d40dfbdbe3646, type: 3}
@@ -1706,7 +1706,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4637881384662521369}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.054925606, z: 0}
+  m_LocalPosition: {x: 0, y: 0.0411, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4465201909733743888}
@@ -1793,7 +1793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boneShape: 1
-  drawBones: 0
+  drawBones: 1
   drawTripods: 0
   boneSize: 1
   tripodSize: 1

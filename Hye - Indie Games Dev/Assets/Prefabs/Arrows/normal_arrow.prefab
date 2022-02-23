@@ -76,8 +76,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c48428db2d2bdc47a649f1d767e4904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowForce: 70
-  damage: 4
+  arrowForce: 75
+  damage: 40
   statusType: 0
   energyCost: 0
   hitMask:
