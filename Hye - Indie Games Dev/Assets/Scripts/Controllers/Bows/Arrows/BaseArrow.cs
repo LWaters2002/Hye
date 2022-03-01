@@ -33,6 +33,8 @@ public class BaseArrow : MonoBehaviour
     protected FixedJoint fixedJoint;
     protected RaycastHit hitObject;
 
+    protected AudioSource hitSound;
+
     protected float chargePercent;
     bool hasHit;
 
@@ -48,6 +50,8 @@ public class BaseArrow : MonoBehaviour
 
         isStuck = false;
         transform.localScale = Vector3.one;
+
+        hitSound = GetComponent<AudioSource>();
 
         if (fixedJoint != null)
         {
@@ -81,10 +85,12 @@ public class BaseArrow : MonoBehaviour
 
         if (!(lastPos != Vector3.zero && !isStuck && hasHit)) return;
 
-        ArrowStick();
+       ArrowStick();
        transform.position = hitObject.point + transform.forward*arrowDepth*chargePercent;
-        ApplyActions(hitObject.collider.gameObject);
+       ApplyActions(hitObject.collider.gameObject);
 
+
+        hitSound.Play();
     }
 
     void ArrowStick()

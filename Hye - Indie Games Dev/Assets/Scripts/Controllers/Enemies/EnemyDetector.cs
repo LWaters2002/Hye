@@ -31,6 +31,7 @@ public class EnemyDetector : MonoBehaviour
         }
         dir = new Vector3(dir.x, 0, dir.z);
         dir = dir.normalized * influence;
+        Debug.DrawLine(transform.position + Vector3.up * 2f, transform.position + Vector3.up * 2f + dir * 2f, Color.green,2f);
         onDirectionChanged.Invoke(dir);
 
     }
