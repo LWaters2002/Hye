@@ -34,6 +34,7 @@ public abstract class Enemy : MonoBehaviour, IStatusable
 
     public EnemyWeapon activeWeapon { get; set; }
     public UnityAction<float> OnHit;
+    public Vector3 enemyInfluence { get; private set; }
 
     [HideInInspector]
     public bool isGrounded;
@@ -41,6 +42,9 @@ public abstract class Enemy : MonoBehaviour, IStatusable
     // Start is called before the first frame update
     protected virtual void Awake()
     {
+        EnemyDetector ed = GetComponent<EnemyDetector>();
+        if (ed != null) { ed.onDirectionChanged += dir => { enemyInfluence = dir; }; }
+
         activeWeapon = null;
 
         path = new NavMeshPath();

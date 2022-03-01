@@ -18,8 +18,8 @@ public class BowController : MonoBehaviour
 
 
     bool isAiming;
-    private float fullChargeDistance = 20f;
-    
+    public float fullChargeDistance = 50f;
+
     private ShakeListener shakeListener;
     private Camera cam;
 
@@ -67,7 +67,7 @@ public class BowController : MonoBehaviour
 
     public void ReadInput(InputAction.CallbackContext context)
     {
-        if (!isAiming){return;}
+        if (!isAiming) { return; }
         float mouseIn = context.ReadValue<float>();
 
         if (mouseIn < .1 && chargePercent > .2)
@@ -93,7 +93,7 @@ public class BowController : MonoBehaviour
     void Fire()
     {
         stats.TakeEnergy(equippedArrow.energyCost);
-        shakeListener.Shake(.2f,1f,7f,true);
+        shakeListener.Shake(.2f, 1f, 7f, true);
         //Gets center of screen point
 
         Ray ray = cam.ViewportPointToRay(new Vector3(.5f, .5f, 0));
@@ -101,22 +101,22 @@ public class BowController : MonoBehaviour
 
         Vector3 targetPoint;
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, fullChargeDistance))
         {
             targetPoint = hit.point;
         }
         else
         {
-            targetPoint = ray.GetPoint(fullChargeDistance);
+            targetPoint = ray.GetPoint(fullChargeDistance * chargePercent);
         }
 
-        //Adds randomness e.g. spread if arrow isn't fully charged
-        Vector3 arrowDirection = targetPoint - exitPoint.position + Random.insideUnitSphere*(1-chargePercent);
-        BaseArrow temp = Instantiate(equippedArrow, exitPoint.position, cam.transform.rotation,arrowHolder);
+        Debug.DrawRay(ray.origin, ray.direction * 1000, Color.red, 3f);
 
-        temp.Setup(chargePercent);
-        temp.transform.forward = arrowDirection.normalized;
-        temp.gameObject.SetActive(true);
+        //Adds randomness e.g. spread if arrow isn't fully charged
+        Vector3 arrowDirection = targetPoint - exitPoint.position + Random.insideUnitSphere * (1 - chargePercent);
+        BaseArrow temp = Instantiate(equippedArrow, exitPoint.position, cam.transform.rotation, arrowHolder);
+
+        temp.Init(chargePercent, arrowDirection);
     }
-    
+
 }

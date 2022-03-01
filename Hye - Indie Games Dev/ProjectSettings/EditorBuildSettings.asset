@@ -29,4 +29,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_0/L0_UI.unity
     guid: 89b3903a55d103d4fba1f056620a82ae
+  - enabled: 1
+    path: Assets/Scenes/Level_0Alt/L0A_Master.unity
+    guid: 6f33c5b28a79f0e4e8108212ba8c5de1
+  - enabled: 1
+    path: Assets/Scenes/Level_0Alt/L0A_Enemy.unity
+    guid: 96bd6cd6e61cc3e46ac405545e69b63b
+  - enabled: 1
+    path: Assets/Scenes/Level_0Alt/L0A_UI.unity
+    guid: eb9c4dd5eff4f2b4a83ec4cab064c5ca
+  - enabled: 1
+    path: Assets/Scenes/Level_0/L0_Enemy.unity
+    guid: e334fcc41ea15a2439ba4cce10926fe6
   m_configObjects: {}

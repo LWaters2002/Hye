@@ -6,8 +6,8 @@ public class JumpAttack : EnemyWeapon
 {
     [Header("Attack Settings")]
     private int projectileAmount;
-
     public EnemyProjectile projectilePrefab;
+    bool beingUsed;
 
     protected override void Start()
     {
@@ -17,12 +17,18 @@ public class JumpAttack : EnemyWeapon
     protected override void Update()
     {
         base.Update();
+        if (beingUsed)
+        {
+            enemy.rb.MoveRotation(Quaternion.Slerp(enemy.rb.rotation, Quaternion.LookRotation(enemy.player.transform.position-enemy.transform.position, Vector3.up), Time.deltaTime * 3f));
+        }
     }
 
     public void jStart()
     {
         enemy.rb.useGravity = false;
+        beingUsed = true;
     }
+
     public void jAttack()  // needs to be in it's own method for animation events to work
     {
         Attack();
@@ -32,6 +38,7 @@ public class JumpAttack : EnemyWeapon
     {
         Finished();
         enemy.rb.useGravity = true;
+        beingUsed = false;
     }
     public override void Attack()
     {

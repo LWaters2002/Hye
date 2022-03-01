@@ -146,9 +146,10 @@ public class PlayerMovement
 
     private void Jump()
     {
-        if (isAiming) { return; }
+
         if (isGrounded)
         {
+            if (isAiming) { rb.AddForce(settings.jumpForce * t.up * .5f, ForceMode.VelocityChange); return; }
             rb.AddForce(settings.jumpForce * t.up, ForceMode.VelocityChange);
         }
     }

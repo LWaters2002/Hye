@@ -4888,7 +4888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  damage: 99
+  damage: 20
   knockback: 10
   faceVelocity: 1
 --- !u!135 &629877061407032947

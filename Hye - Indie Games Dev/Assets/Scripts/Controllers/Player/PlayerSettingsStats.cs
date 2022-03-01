@@ -15,8 +15,4 @@ public class PlayerSettingsStats : ScriptableObject
     public float energyRegenRate;
     public float energyRegenTime;
 
-
-
-
-
 }

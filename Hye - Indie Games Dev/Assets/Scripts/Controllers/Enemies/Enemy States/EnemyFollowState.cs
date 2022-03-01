@@ -22,26 +22,29 @@ public class EnemyFollowState : EnemyBaseState
 
     public override void FixedTick()
     {
-        if (Vector3.Distance(enemy.player.transform.position, enemy.transform.position) > enemy.senseRange){return;}
-        
+        Vector3 dir = enemy.enemyInfluence;
+
+        if (rb.velocity != Vector3.zero)
+        {
+            rb.MoveRotation(Quaternion.Slerp(rb.rotation, Quaternion.LookRotation(rb.velocity.normalized, Vector3.up), Time.deltaTime * 8f));
+        }
+
+        if (Mathf.Abs(Vector3.Distance(enemy.player.transform.position, enemy.transform.position)) > enemy.senseRange) { return; }
+
         if (!enemy.isGrounded) { return; }
         NavMesh.CalculatePath(transform.position, enemy.player.transform.position, NavMesh.AllAreas, enemy.path);
 
         if (enemy.path.corners.Length > 1)
         {
             Vector3 moveDir = (enemy.path.corners[1] - transform.position).normalized;
-            rb.AddForce(enemy.speed * moveDir, ForceMode.Acceleration);
-
-            if (rb.velocity != Vector3.zero)
-            {
-                rb.MoveRotation(Quaternion.Slerp(rb.rotation, Quaternion.LookRotation(rb.velocity.normalized, Vector3.up), Time.deltaTime * 8f));
-            }
+            dir += moveDir;
         }
-        else 
+        else
         {
             Vector3 moveDir = (-transform.position + enemy.player.transform.position).normalized;
-            rb.AddForce(enemy.speed * moveDir, ForceMode.Acceleration);
+            dir += moveDir;
         }
+        rb.AddForce(enemy.speed * dir.normalized, ForceMode.Acceleration);
     }
 
     public override void OnCollisionEnter(Collision collision) { }

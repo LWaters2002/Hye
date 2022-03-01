@@ -52,8 +52,8 @@ public class GameManager : MonoBehaviour
 
     private void OnDeath()
     {
-        SceneManager.UnloadSceneAsync(scenePrefix + "Master");
-        SceneManager.LoadScene(scenePrefix + "Master", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync(scenePrefix + "Enemy");
+        SceneManager.LoadScene(scenePrefix + "Enemy", LoadSceneMode.Additive);
     }
 
     //Dynamically adds or removes scnes from active scene lists.

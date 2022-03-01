@@ -11,6 +11,8 @@ public class BaseArrow : MonoBehaviour
     public float energyCost;
     public LayerMask hitMask;
 
+    public GameObject hitParticlePrefab;
+
     [Header("Status Settings")]
     public float statusStrength;
     public StatusSpawnable statusSpawnPrefab;
@@ -31,17 +33,19 @@ public class BaseArrow : MonoBehaviour
     protected FixedJoint fixedJoint;
     protected RaycastHit hitObject;
 
+    protected float chargePercent;
     bool hasHit;
 
-    public void Setup(float percent)
+    public void Init(float percent, Vector3 direction)
     {
+        transform.forward = direction.normalized;
+
+        chargePercent = percent;
+
         arrowForce *= percent;
         damage *= percent;
         statusStrength *= percent;
-    }
 
-    protected virtual void OnEnable()
-    {
         isStuck = false;
         transform.localScale = Vector3.one;
 
@@ -62,7 +66,7 @@ public class BaseArrow : MonoBehaviour
     {
         if (!isStuck)
         {
-            //Points in direciton of rotation
+            //Points in direction of rotation
             transform.forward = Vector3.Slerp(transform.forward, rb.velocity.normalized, Time.deltaTime * 4f);
         }
 
@@ -73,13 +77,12 @@ public class BaseArrow : MonoBehaviour
 
         Vector3 velDir = rb.velocity * Time.deltaTime;
 
-        hasHit = Physics.Raycast(lastPos, velDir, out hitObject, (lastPos-transform.position).magnitude, hitMask);
-    //    Debug.DrawLine(lastPos,lastPos + velDir.normalized* (lastPos - transform.position).magnitude, Color.red,2f);
+        hasHit = Physics.Raycast(lastPos, velDir, out hitObject, (lastPos - transform.position).magnitude, hitMask);
 
         if (!(lastPos != Vector3.zero && !isStuck && hasHit)) return;
-        
+
         ArrowStick();
-        transform.position = hitObject.point;
+       transform.position = hitObject.point + transform.forward*arrowDepth*chargePercent;
         ApplyActions(hitObject.collider.gameObject);
 
     }
@@ -90,16 +93,20 @@ public class BaseArrow : MonoBehaviour
 
         if (hitRb != null)
         {
-            fixedJoint = gameObject.AddComponent<FixedJoint>();
-            fixedJoint.connectedBody = hitRb;
-            rb.mass = 0;
-            //Knockback
-            hitRb.AddForce(rb.velocity.normalized * arrowForce / 2, ForceMode.Impulse);
+            Instantiate(hitParticlePrefab, transform.position - transform.forward*2, Quaternion.identity);
+            //Destroy(gameObject);
+            /*             fixedJoint = gameObject.AddComponent<FixedJoint>();
+                        fixedJoint.connectedBody = hitRb;
+                        rb.mass = 0;
+                        //Knockback
+                        hitRb.AddForce(rb.velocity.normalized * arrowForce / 2, ForceMode.Impulse); */
         }
         else if (hitObject.collider.gameObject.TryGetComponent(out Rigidbody otherRb))
         {
-            fixedJoint = gameObject.AddComponent<FixedJoint>();
-            fixedJoint.connectedBody = otherRb;
+            Instantiate(hitParticlePrefab, transform.position - transform.forward*2, Quaternion.identity);
+            //Destroy(gameObject);
+            /*             fixedJoint = gameObject.AddComponent<FixedJoint>();
+                        fixedJoint.connectedBody = otherRb; */
         }
         else
         {
@@ -150,14 +157,14 @@ public class BaseArrow : MonoBehaviour
 
         if (other.TryGetComponent(out IDamagable otherDamagable))
         {
-            otherDamagable.TakeDamage(damage, statusType, transform.position-transform.forward);
+            otherDamagable.TakeDamage(damage, statusType, transform.position - transform.forward);
         }
         else
         {
             IDamagable tempDmg = other.GetComponentInParent<IDamagable>();
             if (tempDmg != null)
             {
-                tempDmg.TakeDamage(damage, statusType, transform.position-transform.forward);
+                tempDmg.TakeDamage(damage, statusType, transform.position - transform.forward);
             }
         }
 

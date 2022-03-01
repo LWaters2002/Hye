@@ -20,9 +20,12 @@ public class PlayerController : MonoBehaviour
     public BowController bowController { get; private set; }
     public CameraController cameraController { get; private set; }
 
+    Vector3 spawnPos; 
+
     public void Setup(GameManager gameManager)
     {
         this.gameManager  = gameManager;
+        spawnPos = transform.position;
 
         controls = new PlayerControls();
         controls.Player.Enable();
@@ -42,7 +45,6 @@ public class PlayerController : MonoBehaviour
         cameraController.Setup(controls);
         bowController.Setup(controls, playerStats);
 
-        //Subscribe to low-level functions
         playerStats.OnDeath += Death;
     }
 
@@ -58,7 +60,8 @@ public class PlayerController : MonoBehaviour
 
     private void Death()
     {
-       // transform.position = checkpointManager.activeCheckpoint.transform.position;
+        transform.position = spawnPos;
+        //checkpointManager.activeCheckpoint.transform.position;
     }
 
     private void OnCollisionEnter(Collision other)

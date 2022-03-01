@@ -1,3 +1,4 @@
+using System.Timers;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,25 +10,30 @@ public class MushiiEnemy : Enemy
     {
         Dictionary<Type, EnemyBaseState> states = new Dictionary<Type, EnemyBaseState>()
         {
-            {typeof(EnemyFollowState), new EnemyFollowState(this)},
             {typeof(EnemyIdleState), new EnemyIdleState(this)},
+            {typeof(EnemyFollowState), new EnemyFollowState(this)},
             {typeof(EnemyAttackState), new MushiAttackState(this)},
             {typeof(MushiiHitState), new MushiiHitState(this)}
         };
 
-        stateMachine.SetStates(states, typeof(EnemyFollowState));
+        stateMachine.SetStates(states, typeof(EnemyIdleState));
     }
 
     protected override void Update()
     {
         base.Update();
         an.SetBool("isGrounded", isGrounded);
+        if (Vector3.Dot(transform.up, Vector3.up) < .95f)
+        {
+            transform.up = Vector3.Lerp(transform.up, Vector3.up, Time.deltaTime);
+        }
+
     }
+
 
     public IEnumerator ChangeToState(Type type, float delay)
     {
         yield return new WaitForSeconds(delay);
-
         stateMachine.SwitchState(type);
     }
 

@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2527166913263083678
 Transform:
   m_ObjectHideFlags: 0
@@ -64,7 +64,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.066436484, y: 0.04062085, z: 0.16645092}
-  m_Center: {x: -0.0006297231, y: 0.00031042472, z: -0.08238374}
+  m_Center: {x: -0.0006297231, y: 0.00031042472, z: -0.14}
 --- !u!114 &8611017945919339370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,13 +77,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c48428db2d2bdc47a649f1d767e4904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowForce: 75
+  arrowForce: 150
   damage: 30
   statusType: 1
   energyCost: 20
   hitMask:
     serializedVersion: 2
     m_Bits: 2167
+  hitParticlePrefab: {fileID: 5604329851105312115, guid: cf409e79354585d4fb80a10eba0a87c4, type: 3}
   statusStrength: 10
   statusSpawnPrefab: {fileID: 4590176490636258139, guid: 6ecc434da314a57419663483c9ef2152, type: 3}
 --- !u!114 &-1983356347892982600
@@ -209,7 +210,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8901853828676077425}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.579}
+  m_LocalPosition: {x: 0, y: -0.0058, z: -0.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2527166913263083678}
@@ -298,7 +299,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -351,7 +352,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -405,7 +406,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 0.48235294}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -467,8 +468,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.1
-      minScalar: 0.05
+      scalar: 0.096
+      minScalar: 0.018
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -625,8 +626,8 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationX:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
+      minMaxState: 3
+      scalar: 3.1415927
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -678,8 +679,8 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationY:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
+      minMaxState: 3
+      scalar: 3.1415927
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -731,8 +732,8 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotation:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
+      minMaxState: 3
+      scalar: 6.283185
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -783,7 +784,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 2000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -842,8 +843,8 @@ ParticleSystem:
         m_RotationOrder: 4
   ShapeModule:
     serializedVersion: 6
-    enabled: 0
-    type: 4
+    enabled: 1
+    type: 0
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -930,7 +931,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.02
       mode: 0
       spread: 0
       speed:
@@ -1102,7 +1103,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 10
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1489,8 +1490,8 @@ ParticleSystem:
         serializedVersion: 2
         key0: {r: 1, g: 0.67058825, b: 0, a: 0}
         key1: {r: 0.41509432, g: 0.3404416, b: 0.22516909, a: 1}
-        key2: {r: 0.3207547, g: 0.25414807, b: 0.1739943, a: 1}
-        key3: {r: 0.46226418, g: 0.28171873, b: 0.19842473, a: 0}
+        key2: {r: 0.3207547, g: 0.25414807, b: 0.1739943, a: 0.98367035}
+        key3: {r: 0.46226418, g: 0.28171873, b: 0.19842473, a: 0.6039216}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
@@ -1505,15 +1506,15 @@ ParticleSystem:
         ctime7: 0
         atime0: 193
         atime1: 5012
-        atime2: 61102
-        atime3: 65535
+        atime2: 30069
+        atime3: 61102
         atime4: 65535
         atime5: 65535
         atime6: 0
         atime7: 0
         m_Mode: 0
         m_NumColorKeys: 4
-        m_NumAlphaKeys: 4
+        m_NumAlphaKeys: 5
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4243,7 +4244,7 @@ ParticleSystem:
     widthOverTrail:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.73
       minScalar: 1
       maxCurve:
         serializedVersion: 2

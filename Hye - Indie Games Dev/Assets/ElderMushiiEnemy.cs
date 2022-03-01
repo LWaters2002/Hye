@@ -28,7 +28,8 @@ public class ElderMushiiEnemy : Enemy
     protected override void Death()
     {
         health = 1000;
-        stateMachine.SwitchState(typeof(EnemyIdleState));
+        //stateMachine.SwitchState(typeof(EnemyIdleState));
+        weapons.Clear();
         an.Play("ElderMushiiPhase2Transition",-1,0f);
     }
 }
