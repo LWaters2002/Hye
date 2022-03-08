@@ -9,6 +9,4 @@ public class lutils
         DamageNumbers d = GameObject.Instantiate(Resources.Load<DamageNumbers>("Prefabs/DamageNumbers"), pos, Quaternion.identity);
         d.Init(damage);
     }
-
-
 }
