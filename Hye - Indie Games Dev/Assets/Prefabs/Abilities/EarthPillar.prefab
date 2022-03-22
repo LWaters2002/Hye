@@ -58,6 +58,7 @@ MonoBehaviour:
   fireDrag: 0
   destroyParticlePrefab: {fileID: 6531953456353901720, guid: 01a9937da65477648b19d8dca6ab3bdc, type: 3}
   fireParticles: {fileID: 8822759179489198469}
+  earthEarthPrefab: {fileID: 8268748023221072608, guid: 644f4cf2d2d9d8e40a278c152e967edb, type: 3}
   damage: 100
 --- !u!54 &3705559183584920286
 Rigidbody:

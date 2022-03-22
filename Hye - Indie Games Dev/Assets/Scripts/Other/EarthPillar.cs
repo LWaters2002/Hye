@@ -13,7 +13,9 @@ public class EarthPillar : StatusSpawnable, IStatusable
     public float fireForce;
     public float fireDrag;
     public GameObject destroyParticlePrefab;
+    [Header("Elemental")]
     public ParticleSystem fireParticles;
+    public EarthEarth earthEarthPrefab;
 
     private float waitTimer;
 
@@ -125,21 +127,44 @@ public class EarthPillar : StatusSpawnable, IStatusable
 
     public void ApplyStatus(GameObject obj, float statusAmount, StatusType statusRecieved)
     {
-        if (StatusType.fire != statusRecieved) { return; }
-
-        isOnFire = true;
-        fireParticles.Play();
-
-        rb.useGravity = true;
-        rb.drag = fireDrag;
-
-        foreach (Transform t in transform) //Sets the layer to default to prevent people jumping on it and so it can hit static enemies. :D 
+        switch (statusRecieved)
         {
-            t.gameObject.layer = 0;
+            case StatusType.none:
+                break;
+            case StatusType.earth:
+                SpawnEarthEarth();
+                Destroy(gameObject);
+                break;
+            case StatusType.water:
+                break;
+            case StatusType.lightning:
+                break;
+            case StatusType.fire:
+                isOnFire = true;
+                fireParticles.Play();
+
+                rb.useGravity = true;
+                rb.drag = fireDrag;
+
+                foreach (Transform t in transform) //Sets the layer to default to prevent people jumping on it and so it can hit static enemies. :D 
+                {
+                    t.gameObject.layer = 0;
+                }
+
+                rb.AddForce(obj.transform.forward * fireForce, ForceMode.VelocityChange);
+                Destroy(obj);
+                break;
+            default:
+                break;
         }
 
-        rb.AddForce(obj.transform.forward * fireForce, ForceMode.VelocityChange);
-        Destroy(obj);
+    }
+
+    void SpawnEarthEarth() 
+    {
+        EarthEarth e = Instantiate(earthEarthPrefab, transform.position, Quaternion.identity);
+
+        e.Init();
     }
 
     void OnDestroy()

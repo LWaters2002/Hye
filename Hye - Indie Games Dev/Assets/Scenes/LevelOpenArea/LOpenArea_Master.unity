@@ -1534,10 +1534,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 311370180443047832, guid: 8c689fa46efec1d4699bdf1ff4e54787, type: 3}
-      propertyPath: arrowHolder
-      value: 
-      objectReference: {fileID: 333737409}
+    - target: {fileID: 7724946360697447723, guid: 8c689fa46efec1d4699bdf1ff4e54787, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 2.1213872
+      objectReference: {fileID: 0}
     - target: {fileID: 7724946361013410983, guid: 8c689fa46efec1d4699bdf1ff4e54787, type: 3}
       propertyPath: m_RootOrder
       value: 1
