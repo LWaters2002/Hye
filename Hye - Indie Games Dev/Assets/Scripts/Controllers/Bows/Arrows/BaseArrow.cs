@@ -85,9 +85,9 @@ public class BaseArrow : MonoBehaviour
 
         if (!(lastPos != Vector3.zero && !isStuck && hasHit)) return;
 
-       ArrowStick();
-       transform.position = hitObject.point + transform.forward*arrowDepth*chargePercent;
-       ApplyActions(hitObject.collider.gameObject);
+        ArrowStick();
+        transform.position = hitObject.point + transform.forward * arrowDepth * chargePercent;
+        ApplyActions(hitObject.collider.gameObject);
 
 
         hitSound.Play();
@@ -99,7 +99,7 @@ public class BaseArrow : MonoBehaviour
 
         if (hitRb != null)
         {
-            Instantiate(hitParticlePrefab, transform.position - transform.forward*2, Quaternion.identity);
+            Instantiate(hitParticlePrefab, transform.position - transform.forward * 2, Quaternion.identity);
             //Destroy(gameObject);
             /*             fixedJoint = gameObject.AddComponent<FixedJoint>();
                         fixedJoint.connectedBody = hitRb;
@@ -109,7 +109,7 @@ public class BaseArrow : MonoBehaviour
         }
         else if (hitObject.collider.gameObject.TryGetComponent(out Rigidbody otherRb))
         {
-            Instantiate(hitParticlePrefab, transform.position - transform.forward*2, Quaternion.identity);
+            Instantiate(hitParticlePrefab, transform.position - transform.forward * 2, Quaternion.identity);
             //Destroy(gameObject);
             /*             fixedJoint = gameObject.AddComponent<FixedJoint>();
                         fixedJoint.connectedBody = otherRb; */
@@ -150,14 +150,14 @@ public class BaseArrow : MonoBehaviour
         if (other.TryGetComponent(out RepelBubble rBubble)) { return; }
         if (other.TryGetComponent(out IStatusable otherStatus))
         {
-            otherStatus.ApplyStatus(statusStrength, statusType);
+            otherStatus.ApplyStatus(gameObject, statusStrength, statusType);
         }
         else
         {
             IStatusable tempStat = other.GetComponentInParent<IStatusable>();
             if (tempStat != null)
             {
-                tempStat.ApplyStatus(statusStrength, statusType);
+                tempStat.ApplyStatus(gameObject, statusStrength, statusType);
             }
         }
 

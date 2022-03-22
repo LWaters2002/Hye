@@ -14,7 +14,7 @@ public interface IDamagable
 
 public interface IStatusable
 {
-    void ApplyStatus(float statusAmount, StatusType statusRecieved);
+    void ApplyStatus(GameObject obj, float statusAmount, StatusType statusRecieved);
 }
 
 public interface IDestructable

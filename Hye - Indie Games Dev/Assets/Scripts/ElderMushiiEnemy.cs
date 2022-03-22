@@ -17,8 +17,8 @@ public class ElderMushiiEnemy : Enemy
         stateMachine.SetStates(states, typeof(EnemyFollowState));
     }
 
-    public override void ApplyStatus(float statusAmount, StatusType statusRecieved)
-    { base.ApplyStatus(statusAmount, statusRecieved); }
+    public override void ApplyStatus(GameObject obj, float statusAmount, StatusType statusRecieved)
+    { base.ApplyStatus( obj, statusAmount, statusRecieved); }
 
     public override void TakeDamage(float damageAmount, StatusType damageType, Vector3 damageSource)
     {

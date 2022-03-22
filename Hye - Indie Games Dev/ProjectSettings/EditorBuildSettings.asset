@@ -41,4 +41,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_0/L0_Enemy.unity
     guid: e334fcc41ea15a2439ba4cce10926fe6
+  - enabled: 1
+    path: Assets/Scenes/LevelOpenArea/LOpenArea_Master.unity
+    guid: 59d7f9279d3e97e4f8c5219eb0f11310
+  - enabled: 1
+    path: Assets/Scenes/LevelOpenArea/LOpenArea_Enemy.unity
+    guid: e2a8bf058df24bc499ec2e6352f3b8bc
+  - enabled: 1
+    path: Assets/Scenes/LevelOpenArea/LOpenArea_UI.unity
+    guid: cb80d0e4d672cb44b868788e74677897
   m_configObjects: {}

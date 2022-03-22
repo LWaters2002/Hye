@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crate : MonoBehaviour, IStatusable, IDamagable
+public class Crate : MonoBehaviour , IDamagable
 {
     public float health {get;}
 

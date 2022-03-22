@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: NormalStats
   m_EditorClassIdentifier: 
   maxHealth: 100
-  healthRegenRate: 20
+  healthRegenRate: 0
   healthRegenTime: 5
   maxEnergy: 100
-  energyRegenRate: 20
+  energyRegenRate: 5
   energyRegenTime: 1

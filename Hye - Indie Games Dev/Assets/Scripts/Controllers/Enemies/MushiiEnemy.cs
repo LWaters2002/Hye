@@ -38,8 +38,8 @@ public class MushiiEnemy : Enemy
     }
 
 
-    public override void ApplyStatus(float statusAmount, StatusType statusRecieved)
-    { base.ApplyStatus(statusAmount, statusRecieved); }
+    public override void ApplyStatus(GameObject obj, float statusAmount, StatusType statusRecieved)
+    { base.ApplyStatus(obj, statusAmount, statusRecieved); }
 
     public override void TakeDamage(float damageAmount, StatusType damageType, Vector3 damagePos)
     {

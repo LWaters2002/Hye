@@ -14,7 +14,7 @@ public class BossEnemy : Enemy
         Instantiate(bossUI, Vector3.zero, Quaternion.identity).Setup(this, bossName);
     }
 
-    
+
     protected override void InitialiseStateMachine()
     {
         Dictionary<Type, EnemyBaseState> states = new Dictionary<Type, EnemyBaseState>()
@@ -29,7 +29,7 @@ public class BossEnemy : Enemy
 
 
 
-    public override void ApplyStatus(float statusAmount, StatusType statusRecieved)
-    { base.ApplyStatus(statusAmount, statusRecieved); }
+    public override void ApplyStatus(GameObject obj, float statusAmount, StatusType statusRecieved)
+    { base.ApplyStatus(obj, statusAmount, statusRecieved); }
 
 }

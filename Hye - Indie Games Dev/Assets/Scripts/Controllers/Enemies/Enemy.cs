@@ -131,7 +131,7 @@ public abstract class Enemy : MonoBehaviour, IStatusable
         Destroy(gameObject);
     }
 
-    public virtual void ApplyStatus(float statusAmount, StatusType statusRecieved)
+    public virtual void ApplyStatus(GameObject obj, float statusAmount, StatusType statusRecieved)
     {
         if (statusRecieved == StatusType.none) { return; }
         statuses[(int)statusRecieved - 1].AddToStatus(statusAmount);

@@ -43,8 +43,8 @@ public class EnemyHitbox : MonoBehaviour, IDamagable, IStatusable
         }
     }
 
-    public void ApplyStatus(float statusAmount, StatusType statusRecieved)
+    public void ApplyStatus(GameObject obj, float statusAmount, StatusType statusRecieved)
     {
-        enemyReference.ApplyStatus(statusAmount, statusRecieved);
+        enemyReference.ApplyStatus( obj,  statusAmount,  statusRecieved);
     }
 }

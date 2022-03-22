@@ -7,7 +7,7 @@ public class PlayerStats : IDamagable
 {
     public float health { get; private set; }
     public float energy { get; private set; }
- 
+
     public Transform t { get; private set; }
     public PlayerSettingsStats stats { get; private set; }
     public PlayerController playerController { get; private set; }
@@ -22,7 +22,7 @@ public class PlayerStats : IDamagable
     public event FloatEvent OnEnergyChange;
     public event FloatEvent OnHealthChange;
 
-    public PlayerStats(PlayerController playerController,Transform t, PlayerSettingsStats stats)
+    public PlayerStats(PlayerController playerController, Transform t, PlayerSettingsStats stats)
     {
         this.playerController = playerController;
         this.stats = stats;
@@ -66,6 +66,13 @@ public class PlayerStats : IDamagable
         if (health <= 0) { OnDeath?.Invoke(); }
     }
 
+    public void Heal(float healAmount)
+    {
+        health += healAmount;
+        health = Mathf.Clamp(health, 0, stats.maxHealth);
+        OnHealthChange?.Invoke(health);
+    }
+
     public void TakeEnergy(float energyAmount)
     {
         energy -= energyAmount;
@@ -77,7 +84,7 @@ public class PlayerStats : IDamagable
     {
         health = stats.maxHealth;
         energy = stats.maxEnergy;
-        
+
         OnHealthChange?.Invoke(health);
         OnEnergyChange?.Invoke(energy);
     }

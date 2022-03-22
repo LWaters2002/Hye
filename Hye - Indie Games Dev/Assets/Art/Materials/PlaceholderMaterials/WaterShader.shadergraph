@@ -257,20 +257,6 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
-                    "m_Id": "7dc7c79356a246bb8785115445006760"
-                },
-                "m_SlotId": 2
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "4974cddd21684a53b94d7ff2795a072c"
-                },
-                "m_SlotId": 0
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
                     "m_Id": "89898fa3e3af47b79f7ff06aa7eeb2a3"
                 },
                 "m_SlotId": 0
@@ -278,6 +264,20 @@
             "m_InputSlot": {
                 "m_Node": {
                     "m_Id": "2eb3df0ce5314b79a6dca4d41d271795"
+                },
+                "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "a2313a5567a142018f22e10e095a6c6d"
+                },
+                "m_SlotId": 2
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "2d25640242544135938da06a9060db63"
                 },
                 "m_SlotId": 0
             }
@@ -570,7 +570,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "Occlusion",
     "m_StageCapability": 2,
-    "m_Value": 1.0,
+    "m_Value": 0.0,
     "m_DefaultValue": 1.0,
     "m_Labels": []
 }
@@ -1753,7 +1753,7 @@
     "m_ShaderOutputName": "B",
     "m_StageCapability": 3,
     "m_Value": {
-        "e00": 0.699999988079071,
+        "e00": 0.8999999761581421,
         "e01": 2.0,
         "e02": 2.0,
         "e03": 2.0,
@@ -2166,33 +2166,33 @@
     "m_Value": {
         "serializedVersion": "2",
         "key0": {
-            "r": 0.011764712631702423,
-            "g": 0.13241833448410035,
-            "b": 0.5686274766921997,
+            "r": 0.0076344870030879978,
+            "g": 0.08652415126562119,
+            "b": 0.36900001764297488,
             "a": 1.0
         },
         "key1": {
-            "r": 0.003921568393707275,
-            "g": 0.4687581956386566,
-            "b": 1.0,
+            "r": 0.002556862309575081,
+            "g": 0.3068235218524933,
+            "b": 0.6519999504089356,
             "a": 1.0
         },
         "key2": {
-            "r": 0.09411764144897461,
-            "g": 0.9396076798439026,
-            "b": 1.0,
+            "r": 0.05124296993017197,
+            "g": 0.5540809035301209,
+            "b": 0.5889999866485596,
             "a": 0.0
         },
         "key3": {
-            "r": 1.0,
-            "g": 0.9699242115020752,
-            "b": 0.0939653143286705,
+            "r": 0.0,
+            "g": 0.0,
+            "b": 0.0,
             "a": 0.0
         },
         "key4": {
-            "r": 1.0,
-            "g": 1.0,
-            "b": 1.0,
+            "r": 0.0,
+            "g": 0.0,
+            "b": 0.0,
             "a": 0.0
         },
         "key5": {
@@ -2216,15 +2216,15 @@
         "ctime0": 0,
         "ctime1": 15806,
         "ctime2": 38550,
-        "ctime3": 38550,
-        "ctime4": 60909,
+        "ctime3": 0,
+        "ctime4": 0,
         "ctime5": 0,
         "ctime6": 0,
         "ctime7": 0,
         "atime0": 0,
         "atime1": 40478,
         "atime2": 65535,
-        "atime3": 65535,
+        "atime3": 0,
         "atime4": 0,
         "atime5": 0,
         "atime6": 0,
@@ -2430,7 +2430,7 @@
         "m_Id": "a3a94bace4ed4e4da60a0eab88337d21"
     },
     "m_SurfaceType": 1,
-    "m_AlphaMode": 0,
+    "m_AlphaMode": 3,
     "m_TwoSided": false,
     "m_AlphaClip": false,
     "m_CustomEditorGUI": ""
@@ -3027,7 +3027,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "Smoothness",
     "m_StageCapability": 2,
-    "m_Value": 0.0,
+    "m_Value": 1.0,
     "m_DefaultValue": 0.5,
     "m_Labels": []
 }

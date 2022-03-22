@@ -24,7 +24,7 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: f8d0c181a874adc43aa16d4704b48f10, type: 3}
   m_ShaderKeywords: _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -90,8 +90,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Scale: 50
-    - ScrollSpeed: 0.1
+    - Scale: 400
+    - ScrollSpeed: 0.2
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1

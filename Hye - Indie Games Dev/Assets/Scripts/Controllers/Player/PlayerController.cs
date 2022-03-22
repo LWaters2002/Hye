@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public PlayerSettingsMovement mSettings;
     public PlayerSettingsStats sSettings;
 
-    public GameManager gameManager {get; private set;}
+    public GameManager gameManager { get; private set; }
 
     public Rigidbody rb { get; private set; }
     public PlayerMovement playerMovement { get; private set; }
@@ -19,12 +19,13 @@ public class PlayerController : MonoBehaviour
     public CheckpointManager checkpointManager { get; private set; }
     public BowController bowController { get; private set; }
     public CameraController cameraController { get; private set; }
+    public ItemSystem itemSystem { get; private set; }
 
-    Vector3 spawnPos; 
+    Vector3 spawnPos;
 
     public void Setup(GameManager gameManager)
     {
-        this.gameManager  = gameManager;
+        this.gameManager = gameManager;
         spawnPos = transform.position;
 
         controls = new PlayerControls();
@@ -41,6 +42,9 @@ public class PlayerController : MonoBehaviour
 
         bowController = GetComponentInChildren<BowController>();
         cameraController = GetComponent<CameraController>();
+        itemSystem = GetComponent<ItemSystem>();
+
+        itemSystem.Init(this);
 
         cameraController.Setup(controls);
         bowController.Setup(controls, playerStats);

@@ -132,7 +132,7 @@ public class PlayerMovement
         if (Physics.Raycast(t.position, Vector3.down, out slopeHit, 2f))
         {
 
-            if (Vector3.Dot(slopeHit.normal, Vector3.up) < .95f)
+            if (Vector3.Dot(slopeHit.normal, Vector3.up) < settings.autoSlideOnSlopes)
             {
                 isSliding = true;
                 slideRecoverTimer = settings.slideRecoveryTime;

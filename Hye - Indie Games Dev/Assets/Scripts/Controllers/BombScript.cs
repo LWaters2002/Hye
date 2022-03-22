@@ -63,16 +63,21 @@ public class BombScript : MonoBehaviour, IStatusable
         }
     }
 
-    public void ApplyStatus(float statusAmount, StatusType statusRecieved)
+    public void ApplyStatus(GameObject obj, float statusAmount, StatusType statusRecieved)
     {
         transform.parent = null;
         rb.isKinematic = false;
         isHanging = false;
+
+        if (statusRecieved == StatusType.fire) //If hit by fire arrow blow up
+        {
+            Blow();
+        }
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        if (rb.velocity.magnitude > maxVelocity)
+        if (rb.velocity.magnitude > maxVelocity) // If the bomb moves at fast enough speed will blow up on impact. e.g. just makes bomb volatile.
         {
             if ((Vector3.Dot((other.gameObject.transform.position - transform.position).normalized, rb.velocity.normalized)) > .2)
             {
@@ -80,6 +85,8 @@ public class BombScript : MonoBehaviour, IStatusable
             }
         }
     }
+
+
     private void Blow()
     {
         Collider[] hitObjects = Physics.OverlapSphere(transform.position, explosionRadius);

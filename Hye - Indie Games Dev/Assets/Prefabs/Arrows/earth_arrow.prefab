@@ -84,7 +84,7 @@ MonoBehaviour:
   energyCost: 20
   hitMask:
     serializedVersion: 2
-    m_Bits: 2167
+    m_Bits: 10359
   hitParticlePrefab: {fileID: 5604329851105312115, guid: cf409e79354585d4fb80a10eba0a87c4, type: 3}
   statusStrength: 10
   statusSpawnPrefab: {fileID: 4590176490636258139, guid: 6ecc434da314a57419663483c9ef2152, type: 3}
@@ -111,7 +111,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4691046309766534657, guid: 6e2701a3b620ebf4c994ea92d338758a, type: 2}
-  m_audioClip: {fileID: 8300000, guid: de9fa02070875d341bfb7dce2d7aa45c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f633843089df206469bda4a7e79aa692, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
