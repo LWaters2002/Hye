@@ -85,7 +85,7 @@ MonoBehaviour:
   hitMask:
     serializedVersion: 2
     m_Bits: 14455
-  hitParticlePrefab: {fileID: 5604329851105312115, guid: cf409e79354585d4fb80a10eba0a87c4, type: 3}
+  hitParticlePrefab: {fileID: 7074492432795465156, guid: 71ce5b2352beec34a82ffa38d2d8f738, type: 3}
   statusStrength: 0
   statusSpawnPrefab: {fileID: 0}
 --- !u!114 &8813561094368816421

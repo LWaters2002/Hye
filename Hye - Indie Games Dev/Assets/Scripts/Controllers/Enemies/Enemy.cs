@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using System.Linq;
 
 [RequireComponent(typeof(Rigidbody))]
 public abstract class Enemy : MonoBehaviour, IStatusable
@@ -19,12 +20,11 @@ public abstract class Enemy : MonoBehaviour, IStatusable
     public float maxHealth;
     public int damage;
     public float senseRange;
-    public float attackChance;
-    public float attackCheckRate;
-    protected float distanceToPlayer;
+    public float distanceToPlayer {get; private set;}
 
     // Getters and setters
-    public List<EnemyWeapon> weapons { get; private set; }
+    public List<EnemyWeapon> usableWeapons { get; private set; }
+
     public Status[] statuses { get; private set; }
     public PlayerController player { get; private set; }
     public Rigidbody rb { get; private set; }
@@ -57,38 +57,28 @@ public abstract class Enemy : MonoBehaviour, IStatusable
 
         health = maxHealth;
 
-        weapons = new List<EnemyWeapon>();
+        List<EnemyWeapon> weapons = new List<EnemyWeapon>();
 
         weapons.AddRange(GetComponentsInChildren<EnemyWeapon>());
+        weapons.Select(x => x.OnConditionsMet += SetUsableWeapons);
+
         rb = GetComponent<Rigidbody>();
         player = Object.FindObjectOfType<PlayerController>();
         stateMachine = new StateMachine<EnemyBaseState>();
         an = GetComponentInChildren<Animator>();
 
-        InvokeRepeating("CheckAttacks", 0f, attackCheckRate);
         InitialiseStateMachine();
     }
 
-    protected void CheckAttacks()
+    protected void SetUsableWeapons(EnemyWeapon weapon, bool isUsable)
     {
-        if (Random.Range(0f, 1f) > attackChance || distanceToPlayer > senseRange) return;
-
-        foreach (EnemyWeapon weapon in weapons)
+        if (isUsable)
         {
-            if (!weapon.isReady || (weapon.attackRange < distanceToPlayer)) continue;
-
-            if (activeWeapon == null) { activeWeapon = weapon; continue; }
-
-            //Sorts by weapon range
-            if (weapon.attackRange > activeWeapon.attackRange)
-            {
-                activeWeapon = weapon;
-            }
-            else if (weapon.attackRange == activeWeapon.attackRange)
-            {
-                activeWeapon = (Random.Range(0f, 1f) > .5) ? activeWeapon : weapon;
-            }
-
+            usableWeapons.Add(weapon);
+        }
+        else
+        {
+            usableWeapons.Remove(weapon);
         }
     }
 
@@ -97,12 +87,20 @@ public abstract class Enemy : MonoBehaviour, IStatusable
     // Update is called once per frame
     protected virtual void Update()
     {
+        //important variable updates
         distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
+
+        
+
+        // Ticks owned Classes
         stateMachine.Tick();
+
         foreach (Status status in statuses)
         {
             status.UpdateStatus();
         }
+
+        //Checks if grounded
         Vector3 temp = (player.transform.position - transform.position).normalized;
         temp.y = 0;
 

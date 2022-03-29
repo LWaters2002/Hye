@@ -1,27 +1,39 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class EnemyWeapon : MonoBehaviour
 {
+    [Header("Attack Statistics")]
     public float attackRate;
+
+    public float minAttackRange;
+    public float maxAttackRange;
+
+    public int priority;
+
+    [Header("Attack Owner Effector")]
+    public float exhaustAmount;
+    public float recoveryTime;
+
     protected float attackCooldown;
 
-    public bool isReady { get; private set; }
     public string animationName;
     protected bool attacking;
+
+    bool isUsable = false;
 
     public delegate void voidEvent();
     public event voidEvent OnFinished;
 
-    protected Enemy enemy;
+    public Action<EnemyWeapon, bool> OnConditionsMet;
 
-    public float attackRange;
+    protected Enemy enemy;
 
     protected virtual void Start()
     {
         attacking = false;
-        isReady = false;
         attackCooldown = attackRate;
         enemy = GetComponentInParent<Enemy>();
     }
@@ -33,7 +45,21 @@ public abstract class EnemyWeapon : MonoBehaviour
             attackCooldown -= Time.deltaTime;
         }
 
-        isReady = (attackCooldown < 0);
+        bool conditionMet = CheckConditions();
+        
+        if (isUsable != conditionMet)
+        {
+            OnConditionsMet?.Invoke(this, conditionMet);
+            isUsable = conditionMet;
+        }
+    }
+
+    protected virtual bool CheckConditions() // Default Conditions : Within minimum and maximum range, Attack is not on cooldown.
+    {
+        if (!(enemy.distanceToPlayer > minAttackRange && enemy.distanceToPlayer < maxAttackRange)) { return false; } //Checks player is within range
+        if (attackCooldown > 0) { return false; } //Checks if the weapon is offCooldown
+
+        return true;
     }
 
     protected void Finished()
@@ -50,10 +76,7 @@ public abstract class EnemyWeapon : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (enemy != null)
-        {
-            enemy.weapons.Remove(this);
-        }
+        OnConditionsMet?.Invoke(this, false);
     }
 
 }

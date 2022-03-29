@@ -13,8 +13,12 @@ public class MushiAttackState : EnemyAttackState
     {
         stateToSwitch = null;
         enemy.activeWeapon.OnFinished += SwitchState;
-
-        enemy.an.Play(enemy.activeWeapon.animationName,-1,0f);
+        
+        //If there's an animation for the attack, plays the animation
+        string animName = enemy.activeWeapon.animationName;
+        
+        if (animName == "") { return; }
+        enemy.an.Play(animName, -1, 0f);
     }
 
     public override System.Type Tick()
