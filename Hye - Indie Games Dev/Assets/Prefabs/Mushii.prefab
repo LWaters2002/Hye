@@ -402,16 +402,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba0532181e36dce4d865a2e4d6e96d74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundPoint: {fileID: 863217029}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 64
   speed: 20
   maxHealth: 40
   damage: 10
   senseRange: 40
-  attackChance: 0.7
-  attackCheckRate: 0.2
+  exhaustMax: 0
+  exhaustRecoverRate: 0
+  groundPoint: {fileID: 863217029}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
   isGrounded: 0
 --- !u!135 &947444080
 SphereCollider:
@@ -638,8 +638,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRate: 4
+  minAttackRange: 10
+  maxAttackRange: 60
+  priority: 0
+  exhaustAmount: 10
+  recoveryTime: 3
   animationName: MushiiWaveAttack
-  attackRange: 60
   projectilePrefab: {fileID: 7964640323264791068, guid: c3037be156d5b0c4980a2bb9027cf06c, type: 3}
 --- !u!114 &1052513563
 MonoBehaviour:
@@ -653,9 +657,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4baa65d72691664c94f4e574943f5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRate: 8
+  attackRate: 2
+  minAttackRange: 0
+  maxAttackRange: 6
+  priority: 3
+  exhaustAmount: 10
+  recoveryTime: 2
   animationName: Mushi
-  attackRange: 10
   projectilePrefab: {fileID: 7964640323264791068, guid: 1d959192b4660ca4691f7bb0ca89f4be, type: 3}
 --- !u!1 &6422287569302582016
 GameObject:

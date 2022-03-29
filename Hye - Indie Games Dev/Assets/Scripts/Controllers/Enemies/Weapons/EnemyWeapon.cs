@@ -65,6 +65,7 @@ public abstract class EnemyWeapon : MonoBehaviour
     protected void Finished()
     {
         attackCooldown = attackRate;
+
         attacking = false;
         OnFinished?.Invoke();
     }

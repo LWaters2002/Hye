@@ -8,22 +8,31 @@ using System.Linq;
 [RequireComponent(typeof(Rigidbody))]
 public abstract class Enemy : MonoBehaviour, IStatusable
 {
-    public float health { get; protected set; }
-    public delegate void FloatEvent(float f);
-    public event FloatEvent OnHealthChange;
-
-    public Transform groundPoint;
-    public LayerMask groundMask;
 
     [Header("Enemy Stats")]
     public float speed;
     public float maxHealth;
     public int damage;
     public float senseRange;
-    public float distanceToPlayer {get; private set;}
+    public float exhaustMax;
+    public float exhaustRecoverRate;
+
+    public delegate void FloatEvent(float f);
+    public event FloatEvent OnHealthChange;
+
+    public Transform groundPoint;
+    public LayerMask groundMask;
+
+    float timeToAttack = 0;
+
+    public float distanceToPlayer { get; private set; }
 
     // Getters and setters
     public List<EnemyWeapon> usableWeapons { get; private set; }
+
+    //Getters and Setters
+    public float health { get; protected set; }
+    public float exhaust { get; protected set; }
 
     public Status[] statuses { get; private set; }
     public PlayerController player { get; private set; }
@@ -43,6 +52,8 @@ public abstract class Enemy : MonoBehaviour, IStatusable
     protected virtual void Awake()
     {
         EnemyDetector ed = GetComponent<EnemyDetector>();
+        usableWeapons = new List<EnemyWeapon>();
+
         if (ed != null) { ed.onDirectionChanged += dir => { enemyInfluence = dir; }; }
 
         activeWeapon = null;
@@ -56,11 +67,12 @@ public abstract class Enemy : MonoBehaviour, IStatusable
         }
 
         health = maxHealth;
+        exhaust = exhaustMax;
 
         List<EnemyWeapon> weapons = new List<EnemyWeapon>();
 
         weapons.AddRange(GetComponentsInChildren<EnemyWeapon>());
-        weapons.Select(x => x.OnConditionsMet += SetUsableWeapons);
+        weapons.ForEach(x => x.OnConditionsMet += SetUsableWeapons);
 
         rb = GetComponent<Rigidbody>();
         player = Object.FindObjectOfType<PlayerController>();
@@ -90,8 +102,6 @@ public abstract class Enemy : MonoBehaviour, IStatusable
         //important variable updates
         distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
 
-        
-
         // Ticks owned Classes
         stateMachine.Tick();
 
@@ -99,6 +109,23 @@ public abstract class Enemy : MonoBehaviour, IStatusable
         {
             status.UpdateStatus();
         }
+
+        if (!(stateMachine.currentState is EnemyAttackState) && exhaust > 0)
+        {
+            exhaust -= Time.deltaTime * exhaustRecoverRate;
+            exhaust = Mathf.Clamp(exhaust, 0, exhaustMax);
+        }
+
+        if (timeToAttack > 0)
+        {
+            timeToAttack -= Time.deltaTime;
+        }
+        else 
+        {
+            UseWeapon();
+        }
+
+        timeToAttack = Mathf.Clamp(timeToAttack, 0, 2048);
 
         //Checks if grounded
         Vector3 temp = (player.transform.position - transform.position).normalized;
@@ -112,6 +139,28 @@ public abstract class Enemy : MonoBehaviour, IStatusable
         stateMachine.currentState.FixedTick();
         if (isGrounded) { return; }
         rb.AddForce(Vector3.down * (rb.drag) * 9.8f, ForceMode.Acceleration);
+    }
+
+    protected void UseWeapon()
+    {
+        if (usableWeapons.Count == 0) { return;  }
+
+        List<EnemyWeapon> prioritySorted = usableWeapons.OrderByDescending(x => x.priority).ToList();
+        activeWeapon = prioritySorted[0];
+    }
+
+    public void AddExhaust(float _exhaust) 
+    {
+        exhaust += _exhaust;
+    }
+
+    public void AddTimeToAttack(float time) 
+    {
+        timeToAttack += time;
+    }
+    protected virtual void Exhausted() 
+    {
+        exhaust = 0;
     }
 
     public virtual void TakeDamage(float damageAmount, StatusType damageType, Vector3 damagePos)

@@ -302,6 +302,14 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 345094543312791749, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
+      propertyPath: exhaustMax
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 345094543312791749, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
+      propertyPath: exhaustRecoverRate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 345094543312791751, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
       propertyPath: m_Name
       value: ElderMushii
@@ -406,6 +414,26 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149001585370, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
+      propertyPath: priority
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149001585370, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
+      propertyPath: recoveryTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149001585370, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
+      propertyPath: exhaustAmount
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149001585370, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
+      propertyPath: maxAttackRange
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149001585370, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
+      propertyPath: minAttackRange
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1081114050565057514, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
       propertyPath: m_Layer
       value: 13
@@ -466,6 +494,22 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 3173873777348366815, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
+      propertyPath: recoveryTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173873777348366815, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
+      propertyPath: exhaustAmount
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173873777348366815, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
+      propertyPath: maxAttackRange
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173873777348366815, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
+      propertyPath: minAttackRange
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3544031560930181950, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
       propertyPath: m_Layer
       value: 13
@@ -477,6 +521,22 @@ PrefabInstance:
     - target: {fileID: 4637881384662521369, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
       propertyPath: m_Layer
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226363749947459792, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
+      propertyPath: priority
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226363749947459792, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
+      propertyPath: recoveryTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226363749947459792, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
+      propertyPath: maxAttackRange
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226363749947459792, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
+      propertyPath: minAttackRange
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5518105467574051081, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
       propertyPath: m_Layer
@@ -525,6 +585,26 @@ PrefabInstance:
     - target: {fileID: 8716970474383427155, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
       propertyPath: m_Layer
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8878750959579424274, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
+      propertyPath: priority
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8878750959579424274, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
+      propertyPath: recoveryTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8878750959579424274, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
+      propertyPath: exhaustAmount
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8878750959579424274, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
+      propertyPath: maxAttackRange
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8878750959579424274, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
+      propertyPath: minAttackRange
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9011826613812270344, guid: 4042d002aad59e94b9377f5dd722f54c, type: 3}
       propertyPath: m_Layer

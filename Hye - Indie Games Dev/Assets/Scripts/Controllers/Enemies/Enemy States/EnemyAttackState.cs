@@ -25,6 +25,9 @@ public class EnemyAttackState : EnemyBaseState
     private void SwitchState()
     {
         Debug.Log("State switched");
+        enemy.AddTimeToAttack(enemy.activeWeapon.recoveryTime);
+        enemy.AddExhaust(enemy.activeWeapon.exhaustAmount);
+
         enemy.activeWeapon = null;
         stateToSwitch = typeof(EnemyFollowState);
 

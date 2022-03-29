@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3810393945630487465}
   - component: {fileID: 3974280091628866384}
   - component: {fileID: 6430130619804785561}
+  - component: {fileID: 9036404851463962790}
   m_Layer: 0
   m_Name: particle
   m_TagString: Untagged
@@ -4904,13 +4905,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1478bfaa35a04024eadb88789daab82b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2.97
-  radiusThickness: 0.885
+  radius: 5.13
+  radiusThickness: 0.1
   height: 0.81
   mask:
     serializedVersion: 2
     m_Bits: 2056
   pollRate: 0.02
+--- !u!95 &9036404851463962790
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828720340306377755}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9a44c8ca0c223d840aba4d90b95260f7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6892227710513844008
 GameObject:
   m_ObjectHideFlags: 0
