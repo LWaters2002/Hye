@@ -349,8 +349,9 @@ GameObject:
   - component: {fileID: 1729417805763776318}
   - component: {fileID: 1729417805763776312}
   - component: {fileID: 1169745891}
-  - component: {fileID: 947444080}
-  - component: {fileID: 947444079}
+  - component: {fileID: 627245008}
+  - component: {fileID: 627245007}
+  - component: {fileID: 627245012}
   m_Layer: 11
   m_Name: Mushii
   m_TagString: Untagged
@@ -406,15 +407,17 @@ MonoBehaviour:
   maxHealth: 40
   damage: 10
   senseRange: 40
+  followRange: 50
   exhaustMax: 0
   exhaustRecoverRate: 0
   groundPoint: {fileID: 863217029}
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+  deathAnimationName: MushiiDeath
   isGrounded: 0
---- !u!135 &947444080
-SphereCollider:
+--- !u!65 &627245008
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -424,9 +427,25 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4
-  m_Center: {x: 0, y: 1.06, z: 0}
---- !u!114 &947444079
+  m_Size: {x: 1.651083, y: 0.34509087, z: 1.6344795}
+  m_Center: {x: 0.0057401657, y: 2.1866236, z: 0.048498154}
+--- !u!208 &627245007
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729417805763776319}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 1.32, y: 1.235, z: 1.32}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.11, y: 1.18, z: 0.01}
+  m_TimeToStationary: 0.5
+--- !u!114 &627245012
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -435,11 +454,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1729417805763776319}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82bbd3b75abd5604c958c93baa652e20, type: 3}
+  m_Script: {fileID: 11500000, guid: ffb3d6b40c03a88458acd34519ba18fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  influence: 0.5
-  tickRate: 0.05
+  bounceForce: 25
+  damageDealt: 12
 --- !u!1 &1729417805983444889
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,6 +519,7 @@ GameObject:
   - component: {fileID: 240163843}
   - component: {fileID: 6841901762384704011}
   - component: {fileID: 1052513563}
+  - component: {fileID: 850230737}
   m_Layer: 11
   m_Name: NotMushroom
   m_TagString: Untagged
@@ -665,6 +685,20 @@ MonoBehaviour:
   recoveryTime: 2
   animationName: Mushi
   projectilePrefab: {fileID: 7964640323264791068, guid: 1d959192b4660ca4691f7bb0ca89f4be, type: 3}
+--- !u!114 &850230737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3036549709293496240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb58ff45b1ed834eb995f558bed6f06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropPrefab: {fileID: 979501583507650668, guid: 24d36fec1d11ad74f83ad18472b2090a, type: 3}
+  ID: 0
 --- !u!1 &6422287569302582016
 GameObject:
   m_ObjectHideFlags: 0

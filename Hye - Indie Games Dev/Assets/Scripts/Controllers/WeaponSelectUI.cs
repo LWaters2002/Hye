@@ -37,7 +37,7 @@ public class WeaponSelectUI : MonoBehaviour, IUIManagable
         if (held)
         {
             playersControls.Disable();
-            Time.timeScale = 0;
+            Time.timeScale = 0.05f;
             Cursor.lockState = CursorLockMode.Confined;
         }
         else

@@ -14,6 +14,7 @@ public abstract class Enemy : MonoBehaviour, IStatusable
     public float maxHealth;
     public int damage;
     public float senseRange;
+    public float followRange;
     public float exhaustMax;
     public float exhaustRecoverRate;
 
@@ -24,6 +25,7 @@ public abstract class Enemy : MonoBehaviour, IStatusable
     public LayerMask groundMask;
 
     float timeToAttack = 0;
+    public string deathAnimationName;
 
     public float distanceToPlayer { get; private set; }
 
@@ -120,7 +122,7 @@ public abstract class Enemy : MonoBehaviour, IStatusable
         {
             timeToAttack -= Time.deltaTime;
         }
-        else 
+        else
         {
             UseWeapon();
         }
@@ -143,22 +145,24 @@ public abstract class Enemy : MonoBehaviour, IStatusable
 
     protected void UseWeapon()
     {
-        if (usableWeapons.Count == 0) { return;  }
+        if (usableWeapons.Count == 0) { return; }
 
         List<EnemyWeapon> prioritySorted = usableWeapons.OrderByDescending(x => x.priority).ToList();
         activeWeapon = prioritySorted[0];
     }
 
-    public void AddExhaust(float _exhaust) 
+    public void AddExhaust(float _exhaust)
     {
         exhaust += _exhaust;
     }
 
-    public void AddTimeToAttack(float time) 
+    public void AddTimeToAttack(float time)
     {
-        timeToAttack += time;
+        //ExhaustRandomness
+        float rTTA = time * Random.Range(.8f, 1.2f);
+        timeToAttack += rTTA;
     }
-    protected virtual void Exhausted() 
+    protected virtual void Exhausted()
     {
         exhaust = 0;
     }

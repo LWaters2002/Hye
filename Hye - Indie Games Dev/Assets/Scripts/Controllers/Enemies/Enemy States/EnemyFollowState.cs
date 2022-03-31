@@ -15,8 +15,8 @@ public class EnemyFollowState : EnemyBaseState
 
     public override Type Tick()
     {
+        if (Mathf.Abs(enemy.distanceToPlayer) > enemy.followRange) { return typeof(EnemyIdleState); }
         if (enemy.activeWeapon == null) return null;
-
         return typeof(EnemyAttackState);
     }
 
@@ -25,11 +25,11 @@ public class EnemyFollowState : EnemyBaseState
         Vector3 dir = enemy.enemyInfluence;
 
         if (rb.velocity != Vector3.zero)
-        {
+        {   //Makes enemy point towards where it's moving to.
             rb.MoveRotation(Quaternion.Slerp(rb.rotation, Quaternion.LookRotation(rb.velocity.normalized, Vector3.up), Time.deltaTime * 8f));
         }
 
-        if (Mathf.Abs(Vector3.Distance(enemy.player.transform.position, enemy.transform.position)) > enemy.senseRange) { return; }
+        if (Mathf.Abs(enemy.distanceToPlayer) > enemy.followRange) { return; }
 
         if (!enemy.isGrounded) { return; }
         NavMesh.CalculatePath(transform.position, enemy.player.transform.position, NavMesh.AllAreas, enemy.path);

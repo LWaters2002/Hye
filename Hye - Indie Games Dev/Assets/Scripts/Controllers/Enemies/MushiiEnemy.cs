@@ -13,7 +13,8 @@ public class MushiiEnemy : Enemy
             {typeof(EnemyIdleState), new EnemyIdleState(this)},
             {typeof(EnemyFollowState), new EnemyFollowState(this)},
             {typeof(EnemyAttackState), new MushiAttackState(this)},
-            {typeof(MushiiHitState), new MushiiHitState(this)}
+            {typeof(MushiiHitState), new MushiiHitState(this)},
+            {typeof(EnemyEmptyState), new EnemyEmptyState(this)}
         };
 
         stateMachine.SetStates(states, typeof(EnemyIdleState));
@@ -49,5 +50,17 @@ public class MushiiEnemy : Enemy
         {
             stateMachine.SwitchState(typeof(MushiiHitState));
         }
+    }
+
+    protected override void Death()
+    {
+        an.Play(deathAnimationName);
+        stateMachine.SwitchState(typeof(EnemyEmptyState));
+        Invoke("DestroyMe", 1f);
+    }
+
+    void DestroyMe()
+    {
+        Destroy(gameObject);
     }
 }

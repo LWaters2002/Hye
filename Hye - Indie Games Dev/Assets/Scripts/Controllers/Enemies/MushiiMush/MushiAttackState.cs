@@ -18,7 +18,7 @@ public class MushiAttackState : EnemyAttackState
         string animName = enemy.activeWeapon.animationName;
         
         if (animName == "") { return; }
-        enemy.an.Play(animName, -1, 0f);
+        enemy.an.CrossFade(animName, .2f);
     }
 
     public override System.Type Tick()
