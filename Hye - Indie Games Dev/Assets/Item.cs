@@ -28,7 +28,6 @@ public class Item
         amount--;
         Debug.Log($"Item {name} used, {amount} remain");
         
-        
         return true;
     }   
 

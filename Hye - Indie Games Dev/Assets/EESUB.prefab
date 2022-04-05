@@ -4906,7 +4906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 5.13
-  radiusThickness: 0.1
+  radiusThickness: 0.63
   height: 0.81
   mask:
     serializedVersion: 2

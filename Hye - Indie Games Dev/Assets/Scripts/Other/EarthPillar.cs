@@ -10,11 +10,13 @@ public class EarthPillar : StatusSpawnable, IStatusable
     public float initForce;
     public float pullForce;
     public float waitTime;
-    public float fireForce;
-    public float fireDrag;
     public GameObject destroyParticlePrefab;
+
     [Header("Elemental")]
     public ParticleSystem fireParticles;
+    public float fireForce;
+    public float fireDrag;
+    
     public EarthEarth earthEarthPrefab;
 
     private float waitTimer;
@@ -83,8 +85,6 @@ public class EarthPillar : StatusSpawnable, IStatusable
             }
 
             Destroy(gameObject);
-
-
         }
         else
         {

@@ -110,8 +110,6 @@ public class BowController : MonoBehaviour
             targetPoint = ray.GetPoint(fullChargeDistance * chargePercent);
         }
 
-        Debug.DrawRay(ray.origin, ray.direction * 1000, Color.red, 3f);
-
         //Adds randomness e.g. spread if arrow isn't fully charged
         Vector3 arrowDirection = targetPoint - exitPoint.position + transform.right*(Random.Range(-1,1) * (1 - chargePercent) * chargeSpread);
         BaseArrow temp = Instantiate(equippedArrow, exitPoint.position, cam.transform.rotation, arrowHolder);
