@@ -37,6 +37,8 @@ public class PlayerMovement
         this.controls = controls;
         this.settings = settings;
 
+        controls = new PlayerControls();
+        controls.Enable();
         controls.Player.Aim.performed += ctx => OnAim(ctx);
         controls.Player.Jump.performed += _ => Jump();
         controls.Player.Move.performed += ctx => ProcessInput(ctx);

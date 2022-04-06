@@ -137,7 +137,7 @@ public class EarthPillar : StatusSpawnable, IStatusable
                 break;
             case StatusType.water:
                 break;
-            case StatusType.lightning:
+            case StatusType.air:
                 break;
             case StatusType.fire:
                 isOnFire = true;

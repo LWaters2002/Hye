@@ -34,6 +34,6 @@ public enum StatusType
     none,
     earth,
     water,
-    lightning,
+    air,
     fire
 }

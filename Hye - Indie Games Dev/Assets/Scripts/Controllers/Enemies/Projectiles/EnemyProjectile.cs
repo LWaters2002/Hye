@@ -31,11 +31,21 @@ public class EnemyProjectile : MonoBehaviour
     protected virtual void OnTriggerEnter(Collider other)
     {
         PlayerController pc = other.gameObject.GetComponentInParent<PlayerController>();
+        Debug.Log(other.gameObject.name);
         
         if (pc != null)
         {
             pc.playerStats.TakeDamage(damage, StatusType.none, transform.position);
             pc.rb.AddForce(knockback * rb.velocity.normalized, ForceMode.VelocityChange);
+            Destroy(gameObject);
+        }
+
+        IDamagable d = other.gameObject.GetComponentInParent<IDamagable>();
+
+        if (d != null)
+        {
+            if (d is EnemyHitbox) {return;}
+            d.TakeDamage(damage,StatusType.none, transform.position);
             Destroy(gameObject);
         }
 
