@@ -5034,7 +5034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 121b228c9a9668a42aa33b41cf09214f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distancePer: 1
+  distancePer: 10
   blazeBox: {fileID: 2100756900919586877, guid: fea664e6848317f4b8ec7bd83e88cdf8, type: 3}
 --- !u!1 &4720945830169903207
 GameObject:

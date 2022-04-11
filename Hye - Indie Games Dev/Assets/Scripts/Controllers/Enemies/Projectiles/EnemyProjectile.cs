@@ -31,7 +31,6 @@ public class EnemyProjectile : MonoBehaviour
     protected virtual void OnTriggerEnter(Collider other)
     {
         PlayerController pc = other.gameObject.GetComponentInParent<PlayerController>();
-        Debug.Log(other.gameObject.name);
         
         if (pc != null)
         {

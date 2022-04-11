@@ -9,6 +9,7 @@ public class BlazeBoxSub : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         IDamagable damagable = other.gameObject.GetComponent<IDamagable>();
+        Debug.Log(other.gameObject);
 
         if (damagable != null)
         {
