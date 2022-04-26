@@ -53,7 +53,7 @@ Shader "Unlit/TestShader"
                 float2 targetFloat = float2(_ObjectPosition.x,_ObjectPosition.z);
                 float2 posFloat = float2(i.position.x, i.position.z);
                 float lengthToTarget = distance(posFloat,targetFloat);
-                float steppedL = smoothstep(1.5,0.8,lengthToTarget);
+                float steppedL = smoothstep(4.0,0.5,lengthToTarget);
 
                 o.position.y -= steppedL*2.0;
 
