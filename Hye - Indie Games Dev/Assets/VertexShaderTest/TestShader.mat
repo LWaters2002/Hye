@@ -30,6 +30,6 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.7924528, g: 0.45229617, b: 0.45229617, a: 1}
-    - _ObjectPosition: {r: -36.82359, g: 0.11599922, b: -20.96, a: 0}
+    - _ObjectPosition: {r: -16.349998, g: 2.4319992, b: -0.55000114, a: 0}
     - _OtherColour: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
