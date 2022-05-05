@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4878aebd195aa7a418532ec48d26ac62, type: 3}
   m_Name: NormalMovement
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 6
   minSlideTime: 0.3
   slideTime: 2
   slideForce: 10

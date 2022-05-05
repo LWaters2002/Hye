@@ -27,6 +27,7 @@ public class MushiiEnemy : Enemy
         if (Vector3.Dot(transform.up, Vector3.up) < .95f)
         {
             transform.up = Vector3.Lerp(transform.up, Vector3.up, Time.deltaTime);
+            if (Vector3.Dot(transform.up, Vector3.up) < .95f) { transform.up = Vector3.up; }
         }
 
     }
@@ -62,5 +63,13 @@ public class MushiiEnemy : Enemy
     void DestroyMe()
     {
         Destroy(gameObject);
+    }
+
+    public void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Hazard"))
+        {
+            TakeDamage(1000f, StatusType.none, Vector3.zero);
+        }
     }
 }
