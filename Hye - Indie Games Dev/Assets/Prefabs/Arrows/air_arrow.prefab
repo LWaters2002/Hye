@@ -84,7 +84,7 @@ MonoBehaviour:
   energyCost: 0
   hitMask:
     serializedVersion: 2
-    m_Bits: 14455
+    m_Bits: 47223
   hitParticlePrefab: {fileID: 7074492432795465156, guid: 71ce5b2352beec34a82ffa38d2d8f738, type: 3}
   statusStrength: 15
   statusSpawnPrefab: {fileID: 0}

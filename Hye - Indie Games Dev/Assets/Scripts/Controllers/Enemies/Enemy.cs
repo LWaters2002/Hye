@@ -13,10 +13,13 @@ public abstract class Enemy : MonoBehaviour, IStatusable
     public float speed;
     public float maxHealth;
     public int damage;
-    public float senseRange;
-    public float followRange;
     public float exhaustMax;
     public float exhaustRecoverRate;
+
+    [Header("Ranges")]
+    public float senseRange;
+    public float followRange;
+    public float combatDistance; //The distance maintained during combat.
 
     public delegate void FloatEvent(float f);
     public event FloatEvent OnHealthChange;

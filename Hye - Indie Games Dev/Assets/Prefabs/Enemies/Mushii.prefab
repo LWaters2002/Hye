@@ -208,6 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partHealth: 0
   statusWeakness: 0
+  onlyTakesDamageFromWeakness: 0
   partMultiplier: 1
   isVulnerable: 1
   vulnerableNumber: 0
@@ -407,10 +408,11 @@ MonoBehaviour:
   speed: 20
   maxHealth: 40
   damage: 10
-  senseRange: 40
-  followRange: 50
   exhaustMax: 0
   exhaustRecoverRate: 0
+  senseRange: 40
+  followRange: 50
+  combatDistance: 15
   groundPoint: {fileID: 863217029}
   groundMask:
     serializedVersion: 2
@@ -626,6 +628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partHealth: 0
   statusWeakness: 0
+  onlyTakesDamageFromWeakness: 0
   partMultiplier: 1
   isVulnerable: 0
   vulnerableNumber: 0
@@ -792,6 +795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partHealth: 0
   statusWeakness: 0
+  onlyTakesDamageFromWeakness: 0
   partMultiplier: 0.5
   isVulnerable: 0
   vulnerableNumber: 0

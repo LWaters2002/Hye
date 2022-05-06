@@ -64,8 +64,14 @@ public class PlayerController : MonoBehaviour
 
     private void Death()
     {
-        transform.position = spawnPos;
-        //checkpointManager.activeCheckpoint.transform.position;
+        if (checkpointManager.activeCheckpoint != null)
+        {
+            transform.position = checkpointManager.activeCheckpoint.transform.position;
+        }
+        else
+        {
+            transform.position = spawnPos;
+        }
     }
 
     private void OnCollisionEnter(Collision other)

@@ -9,7 +9,7 @@ public class ItemSystem : MonoBehaviour
     PlayerControls controls;
     PlayerStats playerStats;
 
-    Action<Item> itemChange; 
+    Action<Item> itemChange;
     Item currentItem;
 
     public void Init(PlayerController pc)
@@ -27,8 +27,11 @@ public class ItemSystem : MonoBehaviour
     {
         if (val > .5)
         {
-            currentItem.Use();
-            itemChange.Invoke(currentItem);
+            if (currentItem != null)
+            {
+                currentItem.Use();
+                itemChange.Invoke(currentItem);
+            }
         }
     }
 

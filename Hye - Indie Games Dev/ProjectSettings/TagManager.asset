@@ -20,7 +20,7 @@ TagManager:
   - Outlined
   - ClippedEnemy
   - MovementCollisionOnly
-  - 
+  - HitboxOnly
   - 
   - 
   - 

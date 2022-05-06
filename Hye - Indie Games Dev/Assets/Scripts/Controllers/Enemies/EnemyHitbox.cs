@@ -7,6 +7,7 @@ public class EnemyHitbox : MonoBehaviour, IDamagable, IStatusable
     public float health { get; private set; }
     public float partHealth;
     public StatusType statusWeakness;
+    public bool onlyTakesDamageFromWeakness = false;
     public float partMultiplier = 1f;
     public bool isVulnerable;
     public int vulnerableNumber;
@@ -24,6 +25,7 @@ public class EnemyHitbox : MonoBehaviour, IDamagable, IStatusable
 
     public void TakeDamage(float damageAmount, StatusType damageType, Vector3 damagePos)
     {
+        if (onlyTakesDamageFromWeakness && damageType != statusWeakness) { return; }
         health -= damageAmount;
         if (!partContributesToHealth)
         {
@@ -45,6 +47,6 @@ public class EnemyHitbox : MonoBehaviour, IDamagable, IStatusable
 
     public void ApplyStatus(GameObject obj, float statusAmount, StatusType statusRecieved)
     {
-        enemyReference.ApplyStatus( obj,  statusAmount,  statusRecieved);
+        enemyReference.ApplyStatus(obj, statusAmount, statusRecieved);
     }
 }

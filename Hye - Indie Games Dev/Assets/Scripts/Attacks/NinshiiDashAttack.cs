@@ -8,6 +8,7 @@ public class NinshiiDashAttack : EnemyWeapon
     public float dashForce = 10f;
     public ParticleSystem ps;
     bool beingUsed;
+    public GameObject requiredObject;
 
     protected override void Start()
     {
@@ -21,6 +22,13 @@ public class NinshiiDashAttack : EnemyWeapon
         {
             enemy.rb.MoveRotation(Quaternion.Slerp(enemy.rb.rotation, Quaternion.LookRotation(enemy.player.transform.position - enemy.transform.position, Vector3.up), Time.deltaTime * 3f));
         }
+    }
+
+    protected override bool CheckConditions()
+    {
+        bool result = base.CheckConditions();
+        if (requiredObject == null) { result = false; }
+        return result;
     }
 
     public void DashStart()
@@ -38,7 +46,9 @@ public class NinshiiDashAttack : EnemyWeapon
     public void DashFinished()
     {
         Finished();
-        ps.Stop();
+
+        ps?.Stop();
+
     }
     public override void Attack()
     {

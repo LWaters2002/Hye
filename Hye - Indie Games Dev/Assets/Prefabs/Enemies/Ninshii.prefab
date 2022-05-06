@@ -184,10 +184,11 @@ MonoBehaviour:
   speed: 24
   maxHealth: 125
   damage: 50
-  senseRange: 50
-  followRange: 100
   exhaustMax: 0
   exhaustRecoverRate: 0
+  senseRange: 50
+  followRange: 100
+  combatDistance: 0
   groundPoint: {fileID: 7045336574160359948}
   groundMask:
     serializedVersion: 2
@@ -215,6 +216,7 @@ MonoBehaviour:
   animationName: NinshiiDashAttack
   dashForce: 600
   ps: {fileID: 1944565920583563996}
+  requiredObject: {fileID: 2901822290523646841}
 --- !u!114 &1602460919177074727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +237,7 @@ MonoBehaviour:
   recoveryTime: 1
   animationName: NinshiiSlashAttack
   ps: {fileID: 1944565920583563996}
+  requiredObject: {fileID: 2901822290523646841}
 --- !u!114 &1602460919177074726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,7 +437,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1944565918859484502}
   - component: {fileID: 1944565918859484500}
-  - component: {fileID: 1944565918859484501}
   m_Layer: 11
   m_Name: Colliders
   m_TagString: Untagged
@@ -451,7 +453,7 @@ Transform:
   m_GameObject: {fileID: 1944565918859484503}
   m_LocalRotation: {x: -0.25048524, y: -0.0044138427, z: 0.054813936, w: 0.9665574}
   m_LocalPosition: {x: 0.019, y: -0.216, z: -0.375}
-  m_LocalScale: {x: 1, y: 0.46203876, z: 7.297849}
+  m_LocalScale: {x: 2.1102, y: 1.3253582, z: 7.297849}
   m_Children: []
   m_Father: {fileID: 5099985647032401736}
   m_RootOrder: 0
@@ -469,25 +471,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.34343123, y: 0.35254484, z: 0.39959264}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1944565918859484501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1944565918859484503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6509c86a8b15772428566d892bc69ea4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  partHealth: 20
-  statusWeakness: 0
-  partMultiplier: 1
-  isVulnerable: 0
-  vulnerableNumber: 0
-  partIsDestroyable: 1
-  partContributesToHealth: 0
 --- !u!1 &1944565919016259660
 GameObject:
   m_ObjectHideFlags: 0
@@ -5986,6 +5969,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partHealth: 0
   statusWeakness: 0
+  onlyTakesDamageFromWeakness: 0
   partMultiplier: 0.75
   isVulnerable: 0
   vulnerableNumber: 0
@@ -6051,6 +6035,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partHealth: 0
   statusWeakness: 0
+  onlyTakesDamageFromWeakness: 0
   partMultiplier: 1
   isVulnerable: 0
   vulnerableNumber: 0
@@ -6098,6 +6083,7 @@ GameObject:
   - component: {fileID: 5099985647032401736}
   - component: {fileID: 5801781967108807996}
   - component: {fileID: 8723445936590836646}
+  - component: {fileID: 5175064288893671905}
   m_Layer: 11
   m_Name: Sword
   m_TagString: Untagged
@@ -6173,6 +6159,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5175064288893671905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2901822290523646841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6509c86a8b15772428566d892bc69ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partHealth: 1
+  statusWeakness: 4
+  onlyTakesDamageFromWeakness: 1
+  partMultiplier: 1
+  isVulnerable: 0
+  vulnerableNumber: 0
+  partIsDestroyable: 1
+  partContributesToHealth: 0
 --- !u!1 &4105401861562338005
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,12 +5,12 @@ using UnityEngine;
 public class CheckpointManager : MonoBehaviour
 {
 
-    public Checkpoint activeCheckpoint {get; private set;}
+    public Checkpoint activeCheckpoint { get; private set; }
     private Checkpoint[] checkpoints;
 
     public CheckpointManager()
     {
-        checkpoints = Object.FindObjectsOfType<Checkpoint>();   
+        checkpoints = Object.FindObjectsOfType<Checkpoint>();
     }
 
     public void SetActiveCheckpoint(Checkpoint check)
@@ -18,7 +18,7 @@ public class CheckpointManager : MonoBehaviour
         foreach (Checkpoint ch in checkpoints)
         {
             ch.SetAsActive(false);
-        } 
+        }
         check.SetAsActive(true);
         activeCheckpoint = check;
     }

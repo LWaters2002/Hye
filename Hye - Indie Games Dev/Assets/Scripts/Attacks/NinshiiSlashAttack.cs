@@ -7,6 +7,7 @@ public class NinshiiSlashAttack : EnemyWeapon
     [Header("Attack Settings")]
     bool beingUsed;
     public ParticleSystem ps;
+    public GameObject requiredObject;
 
     protected override void Start()
     {
@@ -16,6 +17,13 @@ public class NinshiiSlashAttack : EnemyWeapon
     protected override void Update()
     {
         base.Update();
+    }
+
+    protected override bool CheckConditions()
+    {
+        bool result = base.CheckConditions();
+        if (requiredObject == null) { result = false; }
+        return result;
     }
 
     public void SlashStart()

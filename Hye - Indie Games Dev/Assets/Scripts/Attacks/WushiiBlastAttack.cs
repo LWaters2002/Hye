@@ -6,6 +6,7 @@ public class WushiiBlastAttack : EnemyWeapon
 {
     [Header("Attack Settings")]
     bool beingUsed;
+    public GameObject requiredObject;
 
     protected override void Start()
     {
@@ -22,6 +23,12 @@ public class WushiiBlastAttack : EnemyWeapon
         }
     }
 
+    protected override bool CheckConditions()
+    {
+        bool result = base.CheckConditions();
+        if (requiredObject == null) { result = false; }
+        return result;
+    }
     public void BlastStart()
     {
         beingUsed = true;
