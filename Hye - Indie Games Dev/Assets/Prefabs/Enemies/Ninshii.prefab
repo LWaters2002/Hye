@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 24
-  maxHealth: 100
+  maxHealth: 125
   damage: 50
   senseRange: 50
   followRange: 100

@@ -4897,6 +4897,7 @@ GameObject:
   - component: {fileID: 5668238917094262249}
   - component: {fileID: 5668238917094262248}
   - component: {fileID: 4819379901944701182}
+  - component: {fileID: 1077613833165498465}
   m_Layer: 9
   m_Name: ShurikenProjectile
   m_TagString: Untagged
@@ -4950,3 +4951,16 @@ MonoBehaviour:
   speed: 75
   damage: 20
   knockback: 3
+--- !u!114 &1077613833165498465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5668238917094262250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c2eb9a6466eaa4aa3de1d0a61f5c10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 3
